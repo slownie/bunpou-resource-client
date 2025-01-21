@@ -6,11 +6,14 @@ export const useUserStore = defineStore("userState", {
 
   actions: {
     async signup(email, password) {
-      const res = await fetch("api/users/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+      const res = await fetch(
+        "https://bunpou-resource-server.vercel.app/api/users/signup",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        }
+      );
       if (res.ok) {
         const user = await res.json();
         this.user = user;
