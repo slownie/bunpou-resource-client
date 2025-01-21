@@ -21,14 +21,14 @@ export const useUserStore = defineStore("userState", {
     },
 
     async login(email, password) {
-      const res = await fetch("http://localhost:4000/api/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Headers": "true",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const res = await fetch(
+        "https://bunpou-resource-server.vercel.app/api/users/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        }
+      );
       if (res.ok) {
         const user = await res.json();
         this.user = user;
