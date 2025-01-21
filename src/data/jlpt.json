@@ -1,0 +1,28 @@
+{
+    "questions": [
+        {
+            "id": "0",
+            "question": "Please select the correct particle.",
+            "sentence": "トムさん＿どう思いますか。",
+            "answers": [
+                {
+                    "choice": "は",
+                    "rightAnswer": "1"
+                },
+                {
+                    "choice": "ば",
+                    "rightAnswer": "0"
+                },
+                {
+                    "choice": "に",
+                    "rightAnswer": "0"
+                },
+                {
+                    "choice": "を",
+                    "rightAnswer": "0"
+                }
+            ]
+        }
+    ]
+
+}

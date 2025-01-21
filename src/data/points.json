@@ -1,0 +1,27 @@
+{
+  "points": [
+    {
+      "id": "0",
+      "name": "は",
+      "desc": "The topic particle.<br/> Actually this is fine yeah. <br/> Or what this isn't ideal.",
+      "sentences": [
+        {
+          "jp": "それ<span class='warning-text'>は</span>違うよ。",
+          "eg": "That's wrong."
+        },
+        {
+          "jp": "それは違うよ。",
+          "eg": "That's wrong."
+        }
+      ],
+      "jlptLevel": "5"
+    },
+    {
+      "id": "1",
+      "name": "が",
+      "desc": "The subject particle.",
+      "sentences": [],
+      "jlptLevel": "5"
+    }
+  ]
+}

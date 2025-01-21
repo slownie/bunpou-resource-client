@@ -1,0 +1,12 @@
+==Router==
+- Configure Router so that Home is displayed when logged in and Auth is displayed when logged out
+    - Check so that Grammar Practice cannot be accessed when logged out
+
+==Conjugation Practice==
+- Add this implementation
+
+==Final Touches==
+- Edit CSS to be responsive on different screens
+- Add accessibility properties to HTML elements
+- Setup a Vercel server for MongoDB
+
