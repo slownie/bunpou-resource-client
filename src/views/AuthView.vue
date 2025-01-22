@@ -13,7 +13,7 @@ export default {
     return {
       email: "",
       password: "",
-      srs: ""
+      srs: "",
     };
   },
 
@@ -22,12 +22,14 @@ export default {
       await this.userStore.signup(this.email, this.password);
       return Promise.resolve().then(() => {
         localStorage.setItem("user", this.email);
+        window.location.reload();
       });
     },
     async login() {
       await this.userStore.login(this.email, this.password);
       return Promise.resolve().then(() => {
         localStorage.setItem("user", this.email);
+        window.location.reload();
       });
     },
   },
