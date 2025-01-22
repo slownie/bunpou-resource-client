@@ -17,6 +17,7 @@ export const useUserStore = defineStore("userState", {
       if (res.ok) {
         const user = await res.json();
         this.user = user;
+        window.location.reload();
       }
     },
 
@@ -32,6 +33,7 @@ export const useUserStore = defineStore("userState", {
       if (res.ok) {
         const user = await res.json();
         this.user = user;
+        window.location.reload();
       }
     },
 
