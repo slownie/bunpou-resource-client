@@ -20,16 +20,11 @@ export default {
   methods: {
     async signup() {
       await this.userStore.signup(this.email, this.password);
-      return Promise.resolve().then(() => {
-        localStorage.setItem("user", this.email);
-        window.location.reload();
-      });
     },
     async login() {
       await this.userStore.login(this.email, this.password);
       return Promise.resolve().then(() => {
         localStorage.setItem("user", this.email);
-        window.location.reload();
       });
     },
   },
@@ -45,6 +40,7 @@ export default {
       <input type="text" v-model="email" />
       <label>Password</label>
       <input type="password" v-model="password" />
+      <p v-if="userStore.error">{{ userStore.error }}</p>
       <div class="buttons">
         <button type="submit" class="submit-button">Sign Up</button>
         <br />
