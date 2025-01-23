@@ -40,7 +40,7 @@ export default {
       <input type="text" v-model="email" />
       <label>Password</label>
       <input type="password" v-model="password" />
-      <p v-if="userStore.error">{{ userStore.error }}</p>
+      <p v-if="userStore.error" class="error">{{ userStore.error }}</p>
       <div class="buttons">
         <button type="submit" class="submit-button">Sign Up</button>
         <br />
@@ -114,5 +114,9 @@ form.authform {
   width: 400px;
   height: 32px;
   border-radius: 6px;
+}
+
+.error {
+  background-color: red;
 }
 </style>
