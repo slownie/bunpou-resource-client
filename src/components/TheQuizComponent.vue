@@ -2,62 +2,42 @@
 import { ref, computed } from "vue";
 import { RouterLink } from "vue-router";
 
-const questions = ref([
-  {
-    question: "What is Vue?",
-    answer: 0,
-    options: ["A framework", "A library", "A type of hat"],
-    selected: null,
-  },
-  {
-    question: "What is Vuex used for?",
-    answer: 2,
-    options: ["Eating a delicious snack", "Viewing things", "State management"],
-    selected: null,
-  },
-  {
-    question: "What is Vue Router?",
-    answer: 1,
-    options: [
-      "An ice cream maker",
-      "A routing library for Vue",
-      "Burger sauce",
-    ],
-    selected: null,
-  },
-]);
+const props = defineProps({ questionList: Array });
 
-const quizCompleted = ref(false);
+// Quiz Setup
 const currentQuestion = ref(0);
-const score = computed(() => {
-  let value = 0;
-  questions.value.map((q) => {
-    if (q.selected != null && q.answer == q.selected) {
-      console.log("correct");
-      value++;
-    }
-  });
-  return value;
-});
+const quizCompleted = ref(false);
+const score = ref(0);
 
+// Get the current question via index
 const getCurrentQuestion = computed(() => {
-  let question = questions.value[currentQuestion.value];
+  let question = props.questionList[currentQuestion.value];
   question.index = currentQuestion.value;
   return question;
 });
 
-const SetAnswer = (e) => {
-  questions.value[currentQuestion.value].selected = e.target.value;
-  e.target.value = null;
-};
-
-const NextQuestion = () => {
-  if (currentQuestion.value < questions.value.length - 1) {
+// Increment to the next question
+const getNextQuestion = () => {
+  if (currentQuestion.value < props.questionList.length - 1) {
     currentQuestion.value++;
     return;
   }
-
   quizCompleted.value = true;
+};
+
+const setAnswer = (e) => {
+  props.questionList[currentQuestion.value].selected = e.target.value;
+  e.target.value = null;
+
+  // Setting the score
+  if (
+    props.questionList[currentQuestion.value].selected ==
+    props.questionList[currentQuestion.value].answers.filter((obj) => {
+      return obj.rightAnswer === 1;
+    })
+  ) {
+    score.value++;
+  }
 };
 </script>
 
@@ -67,17 +47,25 @@ const NextQuestion = () => {
 
     <section class="quiz" v-if="!quizCompleted">
       <div class="quiz-info">
-        <span class="question">{{ getCurrentQuestion.question }}</span>
-        <span class="score">Score {{ score }}/{{ questions.length }}</span>
+        <span class="question">
+          {{ getCurrentQuestion.question }}
+        </span>
+        <span class="score">
+          Score {{ score }} / {{ props.questionList.length }}
+        </span>
       </div>
+      {{ getCurrentQuestion.sentence }}
 
       <div class="options">
         <label
-          v-for="(option, index) in getCurrentQuestion.options"
-          :for="'option' + index"
-          :class="`option ${
+          v-for="(answer, index) in props.questionList[currentQuestion].answers"
+          :for="'answer' + index"
+          :class="`answer ${
             getCurrentQuestion.selected == index
-              ? index == getCurrentQuestion.answer
+              ? index ==
+                q.answers.filter((obj) => {
+                  return obj.rightAnswer === 1;
+                })
                 ? 'correct'
                 : 'wrong'
               : ''
@@ -90,20 +78,20 @@ const NextQuestion = () => {
         >
           <input
             type="radio"
-            :id="'option' + index"
+            :id="'answer' + index"
             :name="getCurrentQuestion.index"
             :value="index"
             v-model="getCurrentQuestion.selected"
             :disabled="getCurrentQuestion.selected"
-            @change="SetAnswer"
+            @change="setAnswer"
           />
-          <span>{{ option }}</span>
+          <span> {{ answer.choice }}</span>
         </label>
       </div>
 
-      <button @click="NextQuestion" :disabled="!getCurrentQuestion.selected">
+      <button @click="getNextQuestion" :disabled="!getCurrentQuestion.selected">
         {{
-          getCurrentQuestion.index == questions.length - 1
+          getCurrentQuestion.index == props.questionList.length - 1
             ? "Finish"
             : getCurrentQuestion.selected == null
             ? "Select an option"
@@ -111,10 +99,9 @@ const NextQuestion = () => {
         }}
       </button>
     </section>
-
     <section v-else>
       <h2>You have finished the quiz!</h2>
-      <p>Your score is {{ score }}/{{ questions.length }}</p>
+      <p>Your score is {{ score }}/{{ props.questionList.length }}</p>
       <p>
         Go back to
         <RouterLink to="/grammarpractice">Grammar Practice</RouterLink>.

@@ -1,28 +1,51 @@
 {
-    "questions": [
+  "questions": [
+    {
+      "id": "0",
+      "question": "Please select the correct particle.",
+      "sentence": "トムさん＿どう思いますか。",
+      "answers": [
         {
-            "id": "0",
-            "question": "Please select the correct particle.",
-            "sentence": "トムさん＿どう思いますか。",
-            "answers": [
-                {
-                    "choice": "は",
-                    "rightAnswer": "1"
-                },
-                {
-                    "choice": "ば",
-                    "rightAnswer": "0"
-                },
-                {
-                    "choice": "に",
-                    "rightAnswer": "0"
-                },
-                {
-                    "choice": "を",
-                    "rightAnswer": "0"
-                }
-            ]
+          "choice": "は",
+          "rightAnswer": "1"
+        },
+        {
+          "choice": "ば",
+          "rightAnswer": "0"
+        },
+        {
+          "choice": "に",
+          "rightAnswer": "0"
+        },
+        {
+          "choice": "を",
+          "rightAnswer": "0"
         }
-    ]
-
+      ],
+      "selected": null
+    },
+    {
+      "id": "1",
+      "question": "Please select the correct particle.",
+      "sentence": "ジョンさん＿どう思いますか。",
+      "answers": [
+        {
+          "choice": "は",
+          "rightAnswer": "1"
+        },
+        {
+          "choice": "ば",
+          "rightAnswer": "0"
+        },
+        {
+          "choice": "に",
+          "rightAnswer": "0"
+        },
+        {
+          "choice": "を",
+          "rightAnswer": "0"
+        }
+      ]
+    }
+  ]
 }
