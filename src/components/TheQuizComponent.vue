@@ -7,12 +7,20 @@ const props = defineProps({ questionList: Array });
 // Quiz Setup
 const currentQuestion = ref(0);
 const quizCompleted = ref(false);
-const score = ref(0);
+const score = computed(() => {
+  let value = 0;
+  // Setting the score
+  props.questionList.map((q) => {
+    if (q.selected != null && q.rightAnswer == q.selected) {
+      value++;
+    }
+  });
+  return value;
+});
 
 // Get the current question via index
 const getCurrentQuestion = computed(() => {
   let question = props.questionList[currentQuestion.value];
-  question.index = currentQuestion.value;
   return question;
 });
 
@@ -26,18 +34,9 @@ const getNextQuestion = () => {
 };
 
 const setAnswer = (e) => {
-  props.questionList[currentQuestion.value].selected = e.target.value;
+  console.log(e.target.value);
+  getCurrentQuestion.selected = e.target.value;
   e.target.value = null;
-
-  // Setting the score
-  if (
-    props.questionList[currentQuestion.value].selected ==
-    props.questionList[currentQuestion.value].answers.filter((obj) => {
-      return obj.rightAnswer === 1;
-    })
-  ) {
-    score.value++;
-  }
 };
 </script>
 
@@ -51,41 +50,37 @@ const setAnswer = (e) => {
           {{ getCurrentQuestion.question }}
         </span>
         <span class="score">
-          Score {{ score }} / {{ props.questionList.length }}
+          Score {{ score }} / {{ questionList.length }}
         </span>
       </div>
       {{ getCurrentQuestion.sentence }}
 
       <div class="options">
         <label
-          v-for="(answer, index) in props.questionList[currentQuestion].answers"
-          :for="'answer' + index"
-          :class="`answer ${
-            getCurrentQuestion.selected == index
-              ? index ==
-                q.answers.filter((obj) => {
-                  return obj.rightAnswer === 1;
-                })
+          v-for="option in getCurrentQuestion.answers"
+          :class="`option ${
+            getCurrentQuestion.selected === option
+              ? option === getCurrentQuestion.rightAnswer
                 ? 'correct'
                 : 'wrong'
               : ''
           } ${
             getCurrentQuestion.selected != null &&
-            index != getCurrentQuestion.selected
+            option != getCurrentQuestion.selected
               ? 'disabled'
               : ''
           }`"
         >
           <input
             type="radio"
-            :id="'answer' + index"
-            :name="getCurrentQuestion.index"
-            :value="index"
+            :id="option"
+            :name="option"
+            :value="option"
             v-model="getCurrentQuestion.selected"
             :disabled="getCurrentQuestion.selected"
             @change="setAnswer"
           />
-          <span> {{ answer.choice }}</span>
+          <span> {{ option }}</span>
         </label>
       </div>
 
