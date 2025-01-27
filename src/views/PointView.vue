@@ -18,8 +18,8 @@ export default {
   },
 
   methods: {
-    addGrammarPoint() {
-      this.userStore.user.srs.append();
+    async addGrammarPoint() {
+      await this.userStore.addSentence(this.grammarPoint);
     }
   }
 };

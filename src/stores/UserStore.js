@@ -8,6 +8,7 @@ export const useUserStore = defineStore("userState", {
   }),
 
   actions: {
+    // Auth Actions
     async signup(email, password) {
       this.error = null;
       const res = await fetch(
@@ -55,4 +56,25 @@ export const useUserStore = defineStore("userState", {
       localStorage.removeItem("user");
     },
   },
+
+  // Data Actions
+  async addSentence(sentenceObject) {
+    const userID = this.user._id;
+    try {
+      const res = await fetch(
+        "https://bunpou-resource-server.vercel.app/api/users/addSentence",
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({userID, sentenceObject}),
+        }
+      );
+      if (res.ok) {
+        // Add the new sentence to the pinia state
+        this.user.sentenceBank.append(sentenceObject);
+      }
+    } catch (error) {
+      this.error = error;
+    }
+  }
 });

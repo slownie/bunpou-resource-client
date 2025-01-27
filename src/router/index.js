@@ -6,6 +6,7 @@ import AuthFailureView from "@/views/AuthFailureView.vue";
 import NotFound from "@/views/NotFound.vue";
 
 import { useUserStore } from "../stores/UserStore";
+import TestPractice from "@/views/TestPractice.vue";
 
 // https://router.vuejs.org/guide/advanced/navigation-guards.html#global-before-guards
 // https://stackoverflow.com/questions/65588580/how-to-change-component-rendered-by-router-on-state-change-in-vue
@@ -79,6 +80,12 @@ const router = createRouter({
       path: "/:pathMatch(.*)*",
       name: "NotFound",
       component: NotFound,
+    },
+
+    {
+      path: "/test",
+      name: "Test",
+      component: TestPractice
     },
 
     {
