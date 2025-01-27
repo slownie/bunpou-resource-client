@@ -23,9 +23,6 @@ export default {
     },
     async login() {
       await this.userStore.login(this.email, this.password);
-      return Promise.resolve().then(() => {
-        localStorage.setItem("user", this.email);
-      });
     },
   },
 };
@@ -61,6 +58,7 @@ export default {
       <label>Password</label>
       <input type="password" v-model="password" />
       <div class="buttons">
+        <p v-if="userStore.error" class="error">{{ userStore.error }}</p>
         <button type="submit" class="submit-button">Login</button>
         <br />
         <button
@@ -117,6 +115,6 @@ form.authform {
 }
 
 .error {
-  background-color: red;
+  color: red;
 }
 </style>

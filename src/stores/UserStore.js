@@ -9,29 +9,28 @@ export const useUserStore = defineStore("userState", {
 
   actions: {
     async signup(email, password) {
-      try {
-        const res = await fetch(
-          "https://bunpou-resource-server.vercel.app/api/users/signup",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, password }),
-          }
-        );
-        // Update Pinia state
-        const user = await res.json();
-        this.user = user;
-        this.error = null;
+      this.error = null;
+      const res = await fetch(
+        "https://bunpou-resource-server.vercel.app/api/users/signup",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        }
+      );
+      const json = await res.json();
 
-        // Browser Related
-        localStorage.setItem("user", user);
-        router.push("/"); // Go to homepage
-      } catch (error) {
-        this.error = error;
+      if (!res.ok) {
+        this.error = json.error;
+      }
+
+      if (res.ok) {
+        this.user = json;
       }
     },
 
     async login(email, password) {
+      this.error = null;
       const res = await fetch(
         "https://bunpou-resource-server.vercel.app/api/users/login",
         {
@@ -40,14 +39,14 @@ export const useUserStore = defineStore("userState", {
           body: JSON.stringify({ email, password }),
         }
       );
+      const json = await res.json();
 
       if (!res.ok) {
+        this.error = json.error;
       }
 
       if (res.ok) {
-        const user = await res.json();
-        this.user = user;
-        window.location.reload();
+        this.user = json;
       }
     },
 
