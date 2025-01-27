@@ -10,12 +10,4 @@ const pinia = createPinia();
 app.use(router);
 app.use(pinia);
 
-watch(
-  pinia.state,
-  (state) => {
-    localStorage.setItem("user", JSON.stringify(state.User));
-  },
-  { deep: true }
-);
-
 app.mount("#app");
