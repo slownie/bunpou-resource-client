@@ -1,6 +1,7 @@
-==Router==
-- Configure Router so that Home is displayed when logged in and Auth is displayed when logged out
-    - Check so that Grammar Practice cannot be accessed when logged out
+==Testing==
+- Auth Testing with Playwright
+
+
 
 ==Conjugation Practice==
 - Add this implementation
@@ -8,5 +9,22 @@
 ==Final Touches==
 - Edit CSS to be responsive on different screens
 - Add accessibility properties to HTML elements
-- Setup a Vercel server for MongoDB
 
+==Data Storage==
+
+Frontend:
+- Grammar Entries
+	- Static data + if it were efficient each point would be its own page
+- Default Sentences
+	- Static data
+	
+
+Backend:
+- Users:
+	- Email
+	- Password
+	- SavedSentences
+		- JP sentence
+		- EN sentence
+		- Progress
+			- Has to be done to allow custom sentences, might be taxing on database but might be more efficient than storing indexes and queuing the database for them
