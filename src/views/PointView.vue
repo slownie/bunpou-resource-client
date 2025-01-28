@@ -1,5 +1,6 @@
 <script>
 import sourceData from "@/data/points.json";
+import sentenceData from "@/data/sentences.json";
 import { useUserStore } from "../stores/UserStore";
 export default {
   setup() {
@@ -15,20 +16,25 @@ export default {
     grammarPoint() {
       return sourceData.points[this.id];
     },
+    testSentence() {
+      return sentenceData.は[0];
+    },
   },
 
   methods: {
     async addGrammarPoint() {
-      await this.userStore.addSentence(this.grammarPoint);
-    }
-  }
+      await this.userStore.addSentence(this.testSentence);
+    },
+  },
 };
 </script>
 
 <template>
   <section v-if="grammarPoint" class="grammar-body">
     <h1>{{ grammarPoint.name }} - JLPT N{{ grammarPoint.jlptLevel }}</h1>
-    <button v-if="userStore.user" @click="addGrammarPoint">Add to study list</button>
+    <button v-if="userStore.user" @click="addGrammarPoint">
+      Add to study list
+    </button>
     <p v-if="userStore.error">{{ userStore.error }}</p>
     <hr class="divider" />
     <div v-html="grammarPoint.desc"></div>
