@@ -29,6 +29,7 @@ export default {
   <section v-if="grammarPoint" class="grammar-body">
     <h1>{{ grammarPoint.name }} - JLPT N{{ grammarPoint.jlptLevel }}</h1>
     <button v-if="userStore.user" @click="addGrammarPoint">Add to study list</button>
+    <p v-if="userStore.error">{{ userStore.error }}</p>
     <hr class="divider" />
     <div v-html="grammarPoint.desc"></div>
     <hr class="divider" />
