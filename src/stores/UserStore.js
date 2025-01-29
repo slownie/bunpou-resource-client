@@ -65,7 +65,7 @@ export const useUserStore = defineStore("userState", () => {
 
   // Data Actions
   async function addSentence(sentenceObject) {
-    console.log(sentenceObject)
+    console.log(sentenceObject);
     this.error = null;
     const userID = JSON.parse(this.user).userID;
     const res = await fetch(
@@ -83,10 +83,9 @@ export const useUserStore = defineStore("userState", () => {
     }
 
     if (res.ok) {
-      console.log(json);
+      this.error = json.message;
     }
   }
-    
 
   async function removeSentence(sentenceObject) {}
 
