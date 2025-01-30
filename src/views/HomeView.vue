@@ -7,15 +7,13 @@ import { RouterLink } from "vue-router";
   <hr />
   <ul>
     <li>
-      <RouterLink to="/grammarpractice/srs"> Go to SRS Practice. </RouterLink>
+      <RouterLink to="/srs"> Go to SRS Practice. </RouterLink>
     </li>
     <li>
-      <RouterLink to="/grammarpractice/conjugation">
-        Go to Conjugation Practice.
-      </RouterLink>
+      <RouterLink to="/conjugation"> Go to Conjugation Practice. </RouterLink>
     </li>
     <li>
-      <RouterLink to="/grammarpractice/jlpt"> Go to JLPT Practice. </RouterLink>
+      <RouterLink to="/jlpt"> Go to JLPT Practice. </RouterLink>
     </li>
   </ul>
 </template>

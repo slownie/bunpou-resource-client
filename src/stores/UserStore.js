@@ -85,6 +85,7 @@ export const useUserStore = defineStore("userState", () => {
 
     if (res.ok) {
       this.error = json.message;
+      this.user.learnedSentences.push(sentenceObject);
     }
   }
 
