@@ -102,7 +102,7 @@ const setAnswer = (e) => {
       <p>Your score is {{ score }}/{{ props.questionList.length }}</p>
       <p>
         Go back to
-        <RouterLink to="/grammarpractice">Grammar Practice</RouterLink>.
+        <RouterLink to="/home">Grammar Practice</RouterLink>.
       </p>
     </section>
   </main>
