@@ -9,6 +9,7 @@ export const useUserStore = defineStore("userState", () => {
     user.value = localStorage.getItem("user");
   }
   const error = ref(null);
+  const loading = ref(true);
 
   // Auth Actions
   async function signup(email, password) {
@@ -89,5 +90,5 @@ export const useUserStore = defineStore("userState", () => {
 
   async function removeSentence(sentenceObject) {}
 
-  return { user, error, signup, login, logout, addSentence };
+  return { user, error, loading, signup, login, logout, addSentence };
 });

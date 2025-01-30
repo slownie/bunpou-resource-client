@@ -3,17 +3,15 @@ import { useUserStore } from "../stores/UserStore";
 export default {
   setup() {
     const userStore = useUserStore();
-    return {userStore}
+    return { userStore };
   },
 
   methods: {
     async logout() {
-        await this.userStore.logout();
-    }
-  }
-}
-
-
+      await this.userStore.logout();
+    },
+  },
+};
 </script>
 
 <template>
