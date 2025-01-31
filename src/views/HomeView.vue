@@ -10,8 +10,8 @@ import { RouterLink } from "vue-router";
       <RouterLink to="/home/srs"> Go to SRS Practice. </RouterLink>
     </li>
     <li>
-      <RouterLink to="/home/conjugation">
-        Go to Conjugation Practice.
+      <RouterLink to="/home/worksheet">
+        Go to Worksheet Practice.
       </RouterLink>
     </li>
     <li>

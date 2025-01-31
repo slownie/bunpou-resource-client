@@ -63,8 +63,8 @@ const router = createRouter({
     },
 
     {
-      path: "/home/conjugation",
-      component: () => import("@/views/practice/ConjugationPracticeView.vue"),
+      path: "/home/worksheet",
+      component: () => import("@/views/practice/WorksheetPracticeView.vue"),
       meta: { requiresAuth: true },
     },
 
