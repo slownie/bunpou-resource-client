@@ -1,15 +1,27 @@
 <script>
-import TheQuizComponent from "@/components/TheQuizComponent.vue";
-import sourceData from "@/data/jlpt.json"
+import TheSRSComponent from "@/components/TheSRSComponent.vue";
+import { useUserStore } from "@/stores/UserStore";
+import sourceData from "@/data/sentences.json";
 
 export default {
   components: {
-    TheQuizComponent,
+    TheSRSComponent,
+  },
+
+  data() {
+    return {
+      userSentences: sourceData,
+    };
+  },
+
+  setup() {
+    const userStore = useUserStore();
+    return { userStore };
   },
 };
 </script>
 
 <template>
   <h1>SRS Practice</h1>
-  <TheQuizComponent questions="sourceData.jlpt"/>
+  <TheSRSComponent :sentenceList="userSentences.questions" />
 </template>

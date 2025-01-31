@@ -1,6 +1,12 @@
 ==Testing==
 - Auth Testing with Playwright
 
+==Grammar Points==
+- Write entries for grammar points (probably will take the longest but can be incrementally done)
+- Create an ExampleSentence component that can be used to add a sentence to a user's learnedSentences array
+
+==JLPT Quiz==
+- Add settings for each of the levels (N5, N4, N3, N2, N1)
 
 
 ==Conjugation Practice==
@@ -11,7 +17,6 @@
 - Add accessibility properties to HTML elements
 
 ==Data Storage==
-
 Frontend:
 - Grammar Entries
 	- Static data + if it were efficient each point would be its own page
@@ -28,3 +33,8 @@ Backend:
 		- EN sentence
 		- Progress
 			- Has to be done to allow custom sentences, might be taxing on database but might be more efficient than storing indexes and queuing the database for them
+
+
+- SRS: Sentences, like Anki
+- Conjugation: User Input on Sentences
+- JLPT: Multi-choice

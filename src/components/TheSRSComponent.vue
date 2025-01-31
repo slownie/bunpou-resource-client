@@ -1,105 +1,41 @@
 <script setup>
-import { ref, computed, toRef } from "vue";
+import { ref, computed } from "vue";
 import { RouterLink } from "vue-router";
 
-defineProps({
-    questions: Array
-});
+const props = defineProps({ sentenceList: Array });
 
-const questionCopy = toRef(questions);
-
-const quizCompleted = ref(false);
+// Quiz Setup
 const currentQuestion = ref(0);
-const score = computed(() => {
-  let value = 0;
-  questions.value.map((q) => {
-    if (q.selected != null && q.answer == q.selected) {
-      console.log("correct");
-      value++;
-    }
-  });
-  return value;
+const srsCompleted = ref(false);
+const flipCard = ref(false);
+
+const getCurrentCard = computed(() => {
+  let card = props.sentenceList[currentQuestion.value];
+  return card;
 });
-
-const getCurrentQuestion = computed(() => {
-  let question = questions.value[currentQuestion.value];
-  question.index = currentQuestion.value;
-  return question;
-});
-
-const SetAnswer = (e) => {
-  questions.value[currentQuestion.value].selected = e.target.value;
-  e.target.value = null;
-};
-
-const NextQuestion = () => {
-  if (currentQuestion.value < questions.value.length - 1) {
-    currentQuestion.value++;
-    return;
-  }
-
-  quizCompleted.value = true;
-};
 </script>
 
 <template>
   <main class="app">
-    <h1>The Quiz</h1>
-
-    <section class="quiz" v-if="!quizCompleted">
+    <section class="quiz" v-if="!srsCompleted">
       <div class="quiz-info">
-        <span class="question">{{ getCurrentQuestion.question }}</span>
-        <span class="score">Score {{ score }}/{{ questions.length }}</span>
+        <span class="question" v-if="!flipCard">
+          {{ getCurrentCard.jpSentence }}
+        </span>
+        <span v-else>
+          {{ getCurrentCard.jpSentence }}
+          {{ getCurrentCard.enSentence }}
+          {{ getCurrentCard.grammarPoint }}
+        </span>
+
+        <button v-if="!flipCard" @click="flipCard = !flipCard">
+          Flip Card
+        </button>
+        <span v-else>
+          <button>Correct</button>
+          <button>Incorrect</button>
+        </span>
       </div>
-
-      <div class="options">
-        <label
-          v-for="(option, index) in getCurrentQuestion.options"
-          :for="'option' + index"
-          :class="`option ${
-            getCurrentQuestion.selected == index
-              ? index == getCurrentQuestion.answer
-                ? 'correct'
-                : 'wrong'
-              : ''
-          } ${
-            getCurrentQuestion.selected != null &&
-            index != getCurrentQuestion.selected
-              ? 'disabled'
-              : ''
-          }`"
-        >
-          <input
-            type="radio"
-            :id="'option' + index"
-            :name="getCurrentQuestion.index"
-            :value="index"
-            v-model="getCurrentQuestion.selected"
-            :disabled="getCurrentQuestion.selected"
-            @change="SetAnswer"
-          />
-          <span>{{ option }}</span>
-        </label>
-      </div>
-
-      <button @click="NextQuestion" :disabled="!getCurrentQuestion.selected">
-        {{
-          getCurrentQuestion.index == questions.length - 1
-            ? "Finish"
-            : getCurrentQuestion.selected == null
-            ? "Select an option"
-            : "Next question"
-        }}
-      </button>
-    </section>
-
-    <section v-else>
-      <h2>You have finished the quiz!</h2>
-      <p>Your score is {{ score }}/{{ questions.length }}</p>
-      <p>
-        Go back to
-        <RouterLink to="/grammarpractice">Grammar Practice</RouterLink>.
-      </p>
     </section>
   </main>
 </template>
