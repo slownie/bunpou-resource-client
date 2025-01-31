@@ -13,6 +13,24 @@ const getCurrentCard = computed(() => {
   let card = props.sentenceList[currentQuestion.value];
   return card;
 });
+
+const getNextQuestion = () => {
+  if (currentQuestion.value < props.sentenceList.length - 1) {
+    currentQuestion.value++;
+    flipCard.value = false;
+    return;
+  }
+  srsCompleted.value = true;
+}
+
+const correctAnswer = () => {
+  getNextQuestion();
+}
+
+const incorrectAnswer = () => {
+  getNextQuestion();
+}
+
 </script>
 
 <template>
@@ -32,11 +50,19 @@ const getCurrentCard = computed(() => {
           Flip Card
         </button>
         <span v-else>
-          <button>Correct</button>
-          <button>Incorrect</button>
+          <button @click="correctAnswer">Correct</button>
+          <button @click="incorrectAnswer">Incorrect</button>
         </span>
       </div>
     </section>
+    <section v-else>
+      <h2>Congratulations! You have finished your SRS for today.</h2>
+      <p>
+        Go back to
+        <RouterLink to="/home">Grammar Practice</RouterLink>.
+      </p>
+    </section>
+
   </main>
 </template>
 
