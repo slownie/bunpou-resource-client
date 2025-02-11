@@ -1,12 +1,13 @@
 <script setup>
 import { ref, computed } from "vue";
 import { RouterLink } from "vue-router";
+import { useUserStore } from "@/stores/UserStore";
 
 const props = defineProps({ sentenceList: Array });
 
 // Quiz Setup
 const currentQuestion = ref(0);
-const srsCompleted = ref(false);
+const srsCompleted = ref();
 const flipCard = ref(false);
 
 const getCurrentCard = computed(() => {

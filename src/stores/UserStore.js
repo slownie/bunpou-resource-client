@@ -91,5 +91,37 @@ export const useUserStore = defineStore("userState", () => {
 
   async function removeSentence(sentenceObject) {}
 
-  return { user, error, loading, signup, login, logout, addSentence };
+  async function changeSRS(srsValue) {
+    this.error = null;
+    const userID = JSON.parse(this.user).userID;
+    const res = await fetch(
+      "https://bunpou-resource-server.vercel.app/api/users/changeSRS",
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userID, srsValue }),
+      }
+    );
+    const json = await res.json();
+
+    if (!res.ok) {
+      this.error = json.error;
+    }
+
+    if (res.ok) {
+      this.error = json.message;
+      this.user.srsDone = srsValue;
+    }
+  }
+
+  return {
+    user,
+    error,
+    loading,
+    signup,
+    login,
+    logout,
+    addSentence,
+    changeSRS,
+  };
 });
