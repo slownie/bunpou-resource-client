@@ -2,19 +2,27 @@
   "points": [
     {
       "id": "-1",
-      "name": "は",
-      "desc": "The topic particle.<br/> Actually this is fine yeah. <br/> Or what this isn't ideal.",
+      "name": "",
+      "desc": "",
+      "conjugation": "",
       "sentences": [
         {
-          "jp": "それ<span class='warning-text'>は</span>違うよ。",
-          "eg": "That's wrong."
+          "jp": "",
+          "eg": ""
         },
         {
-          "jp": "それは違うよ。",
-          "eg": "That's wrong."
+          "jp": "",
+          "eg": ""
+        },
+        {
+          "jp": "",
+          "eg": ""
+        },
+        {
+          "jp": "",
+          "eg": ""
         }
-      ],
-      "jlptLevel": "5"
+      ]
     },
     
 
@@ -47,7 +55,7 @@
       "id": "2",
       "name":"いくら・どんなに～ても",
       "desc":"An adverb that states that no matter how many times something occurs or how much of it occurs, it will not change the outcome. Though it often carries a negative connotation, it can be used for positive situations. いくら and どんなに can be used interchangeably.",
-      "conjugation":"いくら＋Noun＋でも<br/>いくら＋Verb[て-Form]＋も<br/>いくら＋な-Adjective＋でも<br/>いくら＋Adjective[くて]＋も",
+      "conjugation":"いくら＋Noun＋でも<br/>いくら＋Verb[て-Form]＋も<br/>いくら＋な-Adjective＋でも<br/>いくら＋Adjective[くて]＋も<br/>いくら・どんなに(A)でも(B) (“No matter how much (A), (B)”)",
       "sentences": [
         {
           "jp": "<span class='warning-text'>いくら</span>頑張っ<span class='warning-text'>ても</span>、彼にはかなわない。",
@@ -66,7 +74,31 @@
           "eg": "No matter how convenient this software is, I’m not using it."
         }
       ]
-    }
+    },
 
+    {
+      "id": "3",
+      "name": "一方だ",
+      "desc": "A noun that comes after a verb that expresses a situation that is progressing in a certain direction. <br/>That direction can be positive, negative, or neutral, but it is a continuing direction.",
+      "conjugation": "Verb＋いっぽうだ<br/>(A)いっぽうだ (“It is continuing to (A)”)",
+      "sentences": [
+        {
+          "jp": "日本の物価は高くなる<span class='warning-text'>一方だ</span>。",
+          "eg": "The cost of living in Japan keeps rising."
+        },
+        {
+          "jp": "全然運動していないため、体力は衰える<span class='warning-text'>一方だ</span>。",
+          "eg": "Since I’m not exercising at all, my physical strength is steadily declining."
+        },
+        {
+          "jp": "残念ながらこんな事件が増える<span class='warning-text'>一方だ</span>。",
+          "eg": "Unfortunately, there are more and more cases like these."
+        },
+        {
+          "jp": "高齢化が進んで、人口が減る<span class='warning-text'>一方だ</span>。",
+          "eg": "Because of the aging society, the population continues to decline."
+        }
+      ]
+    }
   ]
 }
