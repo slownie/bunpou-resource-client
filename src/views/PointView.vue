@@ -31,30 +31,50 @@ export default {
 
 <template>
   <section v-if="grammarPoint" class="grammar-body">
-    <h1>{{ grammarPoint.name }} - JLPT N{{ grammarPoint.jlptLevel }}</h1>
-    <button v-if="userStore.user" @click="addGrammarPoint">
-      Add to study list
-    </button>
+    <div class="topbar">
+      <h1>{{ grammarPoint.name }} - JLPT N{{ grammarPoint.jlptLevel }}</h1>
+      <button v-if="userStore.user" @click="addGrammarPoint">
+        Add to study list
+      </button>
+    </div>
+    
     <p v-if="userStore.error">{{ userStore.error }}</p>
     <hr class="divider" />
     <div v-html="grammarPoint.desc"></div>
-    <hr class="divider" />
-    <h1>Example Sentences</h1>
-    <p v-for="sentence in grammarPoint.sentences" :key="sentence">
+    <br/>
+
+    <h2>Conjugation</h2>
+    <div v-html="grammarPoint.conjugation"></div>
+    <br/>
+
+    <h2>Example Sentences</h2>
+    <p v-for="sentence in grammarPoint.sentences" :key="sentence" class="sentence">
       <span v-html="sentence.jp"></span>
       <br />
-      {{ sentence.eg }}
+      <span class="eg-text">
+        {{ sentence.eg }}
+      </span>
     </p>
   </section>
 </template>
 
 <style>
+.topbar {
+  display: flex;
+  justify-content: space-between;
+}
+
 .divider {
   width: 75%;
+  margin-bottom: 8px;
+}
+
+.sentence {
+  margin-bottom: 8px;
 }
 
 .warning-text {
-  color: red;
+  color: #cc0000;
   font-weight: bold;
 }
 </style>

@@ -29,7 +29,6 @@ export default {
     <h2>Your Saved Grammar Points</h2>
   </div>
 
-  <h2>N5</h2>
   <ul>
     <li v-for="point in grammar" :key="point.id">
       <RouterLink :to="'grammarlist/' + point.id">
@@ -38,13 +37,6 @@ export default {
     </li>
   </ul>
 
-  <h2>N4</h2>
-
-  <h2>N3</h2>
-
-  <h2>N2</h2>
-
-  <h2>N1</h2>
 </template>
 
 <style></style>

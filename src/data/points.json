@@ -1,7 +1,7 @@
 {
   "points": [
     {
-      "id": "0",
+      "id": "-1",
       "name": "は",
       "desc": "The topic particle.<br/> Actually this is fine yeah. <br/> Or what this isn't ideal.",
       "sentences": [
@@ -16,12 +16,57 @@
       ],
       "jlptLevel": "5"
     },
+    
+
     {
       "id": "1",
-      "name": "が",
-      "desc": "The subject particle.",
-      "sentences": [],
-      "jlptLevel": "5"
+      "name":"合う",
+      "desc":"A suffix verb that follows the conjugated form of another verb. This verb means to do an action with another individual and requires involvement from both parties. It can be used in cooperation (助け合う “to help each other”) or in opposition (言い合う “to argue”).",
+      "conjugation":"Verb[Stem]＋あう<br/>(A)＋合う (“To do (A) together/To do (A) for our benefit”)",
+      "sentences": [
+        {
+          "jp": "こういう時こそ、助け<span class='warning-text'>合う</span>のが大切だね。",
+          "eg": "At times like this, it’s important to help each other out."
+        },
+        {
+          "jp": "二人はいつも言い<span class='warning-text'>合って</span>いますね。のが大切だね。",
+          "eg": "Those two are always arguing aren’t they?"
+        },
+        {
+          "jp": "隣の人と相談し<span class='warning-text'>合って</span>答えを考えてください。",
+          "eg": "Consult with the person beside you and think about the answer."
+        },
+        {
+          "jp": "自分の写真を見せ<span class='warning-text'>合い</span>ましょう。",
+          "eg": "Let’s show each other our pictures!"
+        }
+      ]
+    },
+
+    {
+      "id": "2",
+      "name":"いくら・どんなに～ても",
+      "desc":"An adverb that states that no matter how many times something occurs or how much of it occurs, it will not change the outcome. Though it often carries a negative connotation, it can be used for positive situations. いくら and どんなに can be used interchangeably.",
+      "conjugation":"いくら＋Noun＋でも<br/>いくら＋Verb[て-Form]＋も<br/>いくら＋な-Adjective＋でも<br/>いくら＋Adjective[くて]＋も",
+      "sentences": [
+        {
+          "jp": "<span class='warning-text'>いくら</span>頑張っ<span class='warning-text'>ても</span>、彼にはかなわない。",
+          "eg": "No matter how hard I try, I can’t compete with him."
+        },
+        {
+          "jp": "<span class='warning-text'>どんなに</span>辛く<span class='warning-text'>ても</span>、泣かないよ！",
+          "eg": "Don’t cry no matter how hard it is!"
+        },
+        {
+          "jp": "<span class='warning-text'>いくら</span>ミス<span class='warning-text'>でも</span>、会社は彼を首にしません。",
+          "eg": "It doesn't matter how many mistakes there are, the company won’t fire him."
+        },
+        {
+          "jp": "<span class='warning-text'>どんなに</span>便利<span class='warning-text'>でも</span>、このソフトを使わない。",
+          "eg": "No matter how convenient this software is, I’m not using it."
+        }
+      ]
     }
+
   ]
 }
