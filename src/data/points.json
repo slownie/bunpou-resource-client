@@ -99,6 +99,81 @@
           "eg": "Because of the aging society, the population continues to decline."
         }
       ]
+    },
+
+    {
+      "id": "4",
+      "name": "上に",
+      "desc": "A grammar pattern that acts as a formal way of saying ‘and’ or ‘in addition to’.<br/>The sentence that comes after this pattern serves as additional information to the previous sentence. <br/>This pattern can be used for good, bad, or neutral situations.",
+      "conjugation": "Noun＋[の・である]＋うえに<br/>Verb＋うえに<br/>な-Adjective＋[な・である]＋うえに<br/>い-Adjective＋うえに",
+      "sentences": [
+        {
+          "jp": "ここの料理は美味しい<span class='warning-text'>上に</span>安い。",
+          "eg": "The food here is tasty and it’s cheap too."
+        },
+        {
+          "jp": "今日は寒い<span class='warning-text'>上に</span>風が強い。",
+          "eg": "Today is cold, and on top of that, the wind is strong."
+        },
+        {
+          "jp": "この病は治る可能性は低い<span class='warning-text'>上に</span>、治療費も高額だ。",
+          "eg": "This illness has a low likelihood of being cured, and the treatment costs are high."
+        },
+        {
+          "jp": "ケントさんは新聞記者である<span class='warning-text'>上に</span>スーパーヒーローでもあった。",
+          "eg": "Kent-san was a newspaper reporter as well as a superhero."
+        }
+      ]
+    },
+
+    {
+      "id": "5",
+      "name": "として",
+      "desc": "A particle that shows that the noun this structure is attached to is the standpoint from which the rest of the sentence is viewed from. This standpoint is based on qualities such as one’s position or qualifications.",
+      "conjugation": "Noun＋として<br/>Noun＋として＋Noun",
+      "sentences": [
+        {
+          "jp": "留学生<span class='warning-text'>として</span>日本へ来ました。",
+          "eg": "I came to Japan as an international student."
+        },
+        {
+          "jp": "けいじは友達<span class='warning-text'>として</span>はいい人なんだけど、ルームメイトとしてはよくない。",
+          "eg": "Keiji is a nice person as a friend, but not as a roommate."
+        },
+        {
+          "jp": "東京タワーは東京の観光地<span class='warning-text'>として</span>有名だ。",
+          "eg": "Tokyo Tower is famous as a tourist attraction in Tokyo."
+        },
+        {
+          "jp": "この考えはアイデア<span class='warning-text'>として</span>はいいが、コストや開発期間を考えると難しいと思う。",
+          "eg": "This idea is good as a concept, but considering the cost and development time, I think it’s difficult."
+        }
+      ]
+    },
+
+    {
+      "id": "6",
+      "name": "における・において",
+      "desc": "A combination of に and おける that is translated as ‘at’ or ‘in’.</br>It has the same meaning of で but is used in formal writing like news articles.",
+      "conjugation": "Noun＋において<br/>Noun＋における＋Noun",
+      "sentences": [
+        {
+          "jp": "車内<span class='warning-text'>における</span>携帯電話のご利用はご遠慮ください。",
+          "eg": "Please refrain from using mobile phones inside the car."
+        },
+        {
+          "jp": "2020年のオリンピックは東京<span class='warning-text'>において</span>行われました。",
+          "eg": "The 2020 Olympics were held in Tokyo."
+        },
+        {
+          "jp": "海外<span class='warning-text'>において</span>日本酒の需要が高まっている。",
+          "eg": "The demand for Japanese sake overseas is rising."
+        },
+        {
+          "jp": "日本<span class='warning-text'>における</span>英語教育は依然として、問題だらけです。",
+          "eg": "English education in Japan is still full of problems."
+        }
+      ]
     }
   ]
 }

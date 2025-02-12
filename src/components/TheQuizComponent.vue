@@ -17,7 +17,7 @@ const score = computed(() => {
   });
 
   // Limit the value, shouldn't happen but you never know
-  if (value > props.questionList.length) value = props.questionList.legnth;
+  if (value > props.questionList.length) value = props.questionList.length;
   return value;
 });
 

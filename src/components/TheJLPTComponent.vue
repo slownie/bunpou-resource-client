@@ -1,13 +1,15 @@
 <script setup>
 import { ref, computed } from "vue";
-const props = defineProps({ questionList: Array, level: Number });
+import { RouterLink } from "vue-router";
+
+const props = defineProps({ questionList: Array });
 
 // Quiz Setup
 const currentQuestion = ref(0);
 const quizCompleted = ref(false);
 const score = computed(() => {
   let value = 0;
-
+  // Setting the score
   props.questionList.map((q) => {
     if (q.selected != null && q.rightAnswer == q.selected) {
       value++;
@@ -15,7 +17,7 @@ const score = computed(() => {
   });
 
   // Limit the value, shouldn't happen but you never know
-  if (value > props.questionList.length) value = props.questionList.legnth;
+  if (value > props.questionList.length) value = props.questionList.length;
   return value;
 });
 
@@ -43,7 +45,8 @@ const setAnswer = (e) => {
 
 <template>
   <main class="app">
-    <h1>JLPT Practice</h1>
+    <h1>The Quiz</h1>
+
     <section class="quiz" v-if="!quizCompleted">
       <div class="quiz-info">
         <span class="question">
