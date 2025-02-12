@@ -1,10 +1,107 @@
 <script setup>
 import { ref, computed } from "vue";
+const props = defineProps({ questionList: Array, level: Number });
+
+// Quiz Setup
+const currentQuestion = ref(0);
+const quizCompleted = ref(false);
+const score = computed(() => {
+  let value = 0;
+
+  props.questionList.map((q) => {
+    if (q.selected != null && q.rightAnswer == q.selected) {
+      value++;
+    }
+  });
+
+  // Limit the value, shouldn't happen but you never know
+  if (value > props.questionList.length) value = props.questionList.legnth;
+  return value;
+});
+
+// Get the current question via index
+const getCurrentQuestion = computed(() => {
+  let question = props.questionList[currentQuestion.value];
+  return question;
+});
+
+// Increment to the next question
+const getNextQuestion = () => {
+  if (currentQuestion.value < props.questionList.length - 1) {
+    currentQuestion.value++;
+    return;
+  }
+  quizCompleted.value = true;
+};
+
+const setAnswer = (e) => {
+  console.log(e.target.value);
+  getCurrentQuestion.selected = e.target.value;
+  e.target.value = null;
+};
 </script>
 
 <template>
   <main class="app">
     <h1>JLPT Practice</h1>
+    <section class="quiz" v-if="!quizCompleted">
+      <div class="quiz-info">
+        <span class="question">
+          {{ getCurrentQuestion.question }}
+        </span>
+        <span class="score">
+          Score {{ score }} / {{ questionList.length }}
+        </span>
+      </div>
+      {{ getCurrentQuestion.sentence }}
+
+      <div class="options">
+        <label
+          v-for="option in getCurrentQuestion.answers"
+          :class="`option ${
+            getCurrentQuestion.selected === option
+              ? option === getCurrentQuestion.rightAnswer
+                ? 'correct'
+                : 'wrong'
+              : ''
+          } ${
+            getCurrentQuestion.selected != null &&
+            option != getCurrentQuestion.selected
+              ? 'disabled'
+              : ''
+          }`"
+        >
+          <input
+            type="radio"
+            :id="option"
+            :name="option"
+            :value="option"
+            v-model="getCurrentQuestion.selected"
+            :disabled="getCurrentQuestion.selected"
+            @change="setAnswer"
+          />
+          <span> {{ option }}</span>
+        </label>
+      </div>
+
+      <button @click="getNextQuestion" :disabled="!getCurrentQuestion.selected">
+        {{
+          getCurrentQuestion.index == props.questionList.length - 1
+            ? "Finish"
+            : getCurrentQuestion.selected == null
+            ? "Select an option"
+            : "Next question"
+        }}
+      </button>
+    </section>
+    <section v-else>
+      <h2>You have finished the quiz!</h2>
+      <p>Your score is {{ score }}/{{ props.questionList.length }}</p>
+      <p>
+        Go back to
+        <RouterLink to="/home">Grammar Practice</RouterLink>.
+      </p>
+    </section>
   </main>
 </template>
 

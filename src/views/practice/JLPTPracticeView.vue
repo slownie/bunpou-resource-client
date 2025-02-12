@@ -17,5 +17,5 @@ export default {
 
 <template>
   <h1>JLPT Practice</h1>
-  <TheJLPTComponent />
+  <TheJLPTComponent :question-list="jlptQuestions.n5" :level="5" />
 </template>
