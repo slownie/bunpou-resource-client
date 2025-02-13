@@ -113,25 +113,35 @@ export const useUserStore = defineStore("userState", () => {
 
   // Data Actions
   async function addSentence(sentenceObject) {
-    console.log(sentenceObject);
+    const sendUserID = userID.value;
     this.error = null;
     const res = await fetch(
       "https://bunpou-resource-server.vercel.app/api/users/addSentence",
       {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: { userID, sentenceObject },
+        body: JSON.stringify({
+          userID: sendUserID,
+          sentenceObject: sentenceObject,
+        }),
       }
     );
     const json = await res.json();
-
     if (!res.ok) {
       this.error = json.error;
     }
 
     if (res.ok) {
       this.error = json.message;
-      this.learnedSentences.push(sentenceObject);
+      learnedSentences.value.push(sentenceObject);
+
+      const saveData = JSON.parse(localStorage.getItem("user"));
+      saveData.learnedSentences.push(sentenceObject);
+      console.log(saveData.learnedSentences);
+      console.log(saveData);
+
+      this.learnedSentences = saveData.learnedSentences;
+      localStorage.setItem("user", JSON.stringify(saveData));
     }
   }
 
