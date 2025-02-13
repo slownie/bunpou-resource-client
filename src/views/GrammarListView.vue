@@ -1,31 +1,16 @@
-<script>
+<script setup>
 import sourceData from "@/data/points.json";
-import TheGrammarButton from "@/components/TheGrammarButton.vue";
-import {useUserStore} from "../stores/UserStore";
+import { useUserStore } from "../stores/UserStore";
 
-export default {
-  setup() {
-    const userStore = useUserStore();
-    return {userStore}
-  },  
-
-  components: {
-    TheGrammarButton,
-  },
-
-  data() {
-    return {
-      grammar: sourceData.points,
-    };
-  },
-};
+const userStore = useUserStore();
+const grammar = sourceData.points;
 </script>
 
 <template>
   <h2>Grammar List View</h2>
   <hr />
 
-  <div v-if="userStore.user !== null">
+  <div v-if="userStore.userID">
     <h2>Your Saved Grammar Points</h2>
   </div>
 
@@ -36,7 +21,6 @@ export default {
       </RouterLink>
     </li>
   </ul>
-
 </template>
 
 <style></style>

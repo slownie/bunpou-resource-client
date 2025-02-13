@@ -18,7 +18,7 @@ const grammarPoint = computed(() => {
   <section v-if="grammarPoint" class="grammar-body">
     <div class="topbar">
       <h1>{{ grammarPoint.name }} - JLPT N{{ grammarPoint.jlptLevel }}</h1>
-      <button v-if="userStore.user" @click="addGrammarPoint">
+      <button v-if="userStore.userID" @click="addGrammarPoint">
         Add to study list
       </button>
     </div>
