@@ -1,40 +1,24 @@
-==Testing==
-- Auth Testing with Playwright
++ = Addition
+* = Bugfix
+
+==General==
+* Convert any Options-API code into its Composition-API equivalent
+* Change Pinia store to seperate objects rather than one string object
 
 ==Grammar Points==
-- Write entries for grammar points (probably will take the longest but can be incrementally done)
-- Create an ExampleSentence component that can be used to add a sentence to a user's learnedSentences array
++ Implemenet the grammar button component and the option to add sentences to the user's sentences array
+* Change the 'Add to study list' to add the four main sentences to the user's sentences array and disable afterwards
 
-==JLPT Quiz==
-- Add settings for each of the levels (N5, N4, N3, N2, N1)
+==SRS Practice==
++ Implemenet the SRS system
++ Implement a 'No cards available' screen when the user's sentences array is empty
+* Change the component to use user's sentences instead of the test data
+* Change the srsDone variable when the user is actually finished the SRS
+* Have the system change this variable when a day passes
 
+==JLPT Practice==
++ Implement selectable different levels (N5, N4, N3, N2, N1)
+* Reset quiz progress on exit/completion
 
 ==Conjugation Practice==
-- Add this implementation
-
-==Final Touches==
-- Edit CSS to be responsive on different screens
-- Add accessibility properties to HTML elements
-
-==Data Storage==
-Frontend:
-- Grammar Entries
-	- Static data + if it were efficient each point would be its own page
-- Default Sentences
-	- Static data
-	
-
-Backend:
-- Users:
-	- Email
-	- Password
-	- SavedSentences
-		- JP sentence
-		- EN sentence
-		- Progress
-			- Has to be done to allow custom sentences, might be taxing on database but might be more efficient than storing indexes and queuing the database for them
-
-
-- SRS: Sentences, like Anki
-- Conjugation: User Input on Sentences
-- JLPT: Multi-choice
++ Implemenet this

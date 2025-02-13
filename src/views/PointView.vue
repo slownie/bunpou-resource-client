@@ -1,32 +1,17 @@
-<script>
+<script setup>
+import { computed } from "vue";
+
+import TheGrammarButton from "@/components/TheGrammarButton.vue";
 import sourceData from "@/data/points.json";
-import sentenceData from "@/data/sentences.json";
 import { useUserStore } from "../stores/UserStore";
-export default {
-  setup() {
-    const userStore = useUserStore();
-    return { userStore };
-  },
 
-  props: {
-    id: { type: Number, required: true },
-  },
+const userStore = useUserStore();
 
-  computed: {
-    grammarPoint() {
-      return sourceData.points[this.id];
-    },
-    testSentence() {
-      return sentenceData.は[0];
-    },
-  },
+const props = defineProps({ id: Number });
 
-  methods: {
-    async addGrammarPoint() {
-      await this.userStore.addSentence(this.testSentence);
-    },
-  },
-};
+const grammarPoint = computed(() => {
+  return sourceData.points[props.id];
+});
 </script>
 
 <template>
@@ -37,23 +22,32 @@ export default {
         Add to study list
       </button>
     </div>
-    
+
     <p v-if="userStore.error">{{ userStore.error }}</p>
-    <hr class="divider" />
+    <!--<hr class="divider" />-->
     <div v-html="grammarPoint.desc"></div>
-    <br/>
+    <br />
 
     <h2>Conjugation</h2>
     <div v-html="grammarPoint.conjugation"></div>
-    <br/>
+    <br />
 
     <h2>Example Sentences</h2>
-    <p v-for="sentence in grammarPoint.sentences" :key="sentence" class="sentence">
-      <span v-html="sentence.jp"></span>
+    <p
+      v-for="sentence in grammarPoint.sentences"
+      :key="sentence"
+      class="sentence"
+    >
+      <!-- <span v-html="sentence.jp"></span>
       <br />
       <span class="eg-text">
         {{ sentence.eg }}
-      </span>
+      </span> -->
+      <TheGrammarButton
+        :point="grammarPoint.name"
+        :jpSentence="sentence.jp"
+        :egSentence="sentence.eg"
+      />
     </p>
   </section>
 </template>

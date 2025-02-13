@@ -6,7 +6,6 @@ import AuthFailureView from "@/views/AuthFailureView.vue";
 import NotFound from "@/views/NotFound.vue";
 
 import { useUserStore } from "../stores/UserStore";
-import TestPractice from "@/views/TestPractice.vue";
 
 // https://router.vuejs.org/guide/advanced/navigation-guards.html#global-before-guards
 // https://stackoverflow.com/questions/65588580/how-to-change-component-rendered-by-router-on-state-change-in-vue
@@ -23,7 +22,7 @@ const router = createRouter({
       // Prevent access if already logged in
       beforeEnter: () => {
         const userStore = useUserStore();
-        if (userStore.user) {
+        if (userStore.userID) {
           return "/home";
         }
       },
@@ -47,12 +46,6 @@ const router = createRouter({
       path: "/grammarlist/:id",
       component: () => import("@/views/PointView.vue"),
       props: (route) => ({ id: parseInt(route.params.id) }),
-    },
-
-    // Only used for testing, comment this out on full release
-    {
-      path: "/grammarlist/test",
-      component: () => import("@/views/TestView.vue"),
     },
 
     // Practice Views, requires Auth
@@ -83,12 +76,6 @@ const router = createRouter({
     },
 
     {
-      path: "/test",
-      name: "Test",
-      component: TestPractice
-    },
-
-    {
       path: "/authfailure",
       name: "AuthFailure",
       component: AuthFailureView,
@@ -99,7 +86,7 @@ const router = createRouter({
 // Auth Guard
 router.beforeEach((to) => {
   const userStore = useUserStore();
-  if (to.meta.requiresAuth && !userStore.user) {
+  if (to.meta.requiresAuth && !userStore.userID) {
     return "/authfailure";
   }
 });

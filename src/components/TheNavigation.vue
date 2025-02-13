@@ -1,25 +1,18 @@
-<script>
+<script setup>
 import { useUserStore } from "../stores/UserStore";
-export default {
-  setup() {
-    const userStore = useUserStore();
-    return { userStore };
-  },
+const userStore = useUserStore();
 
-  methods: {
-    async logout() {
-      await this.userStore.logout();
-    },
-  },
-};
+async function logout() {
+  await userStore.logout();
+}
 </script>
 
 <template>
   <div id="nav">
-    <router-link to="/" v-if="userStore.user">Home</router-link>
+    <router-link to="/" v-if="userStore.userID">Home</router-link>
     <router-link to="/" v-else>Sign Up/Login</router-link>
     <router-link to="/grammarlist">Grammar List</router-link>
-    <button v-if="userStore.user" @click="logout">Logout</button>
+    <button v-if="userStore.userID" @click="logout">Logout</button>
   </div>
 </template>
 

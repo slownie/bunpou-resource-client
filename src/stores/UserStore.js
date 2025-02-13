@@ -1,19 +1,28 @@
-import { defineStore } from "pinia";
 import { ref } from "vue";
+import { defineStore } from "pinia";
 import router from "@/router";
 
 export const useUserStore = defineStore("userState", () => {
   // State Variables
-  const user = ref(null);
-  if (localStorage.getItem("user") !== undefined) {
-    user.value = localStorage.getItem("user");
-  }
+  const email = ref(null);
+  const userID = ref(null);
+  const learnedSentences = ref(null);
+  const srsDone = ref(false);
   const error = ref(null);
-  const loading = ref(true);
+  const loading = ref(false);
+
+  if (localStorage.getItem("user") !== null) {
+    let localObject = JSON.parse(localStorage.getItem("user"));
+    email.value = localObject.email;
+    userID.value = localObject.userID;
+    learnedSentences.value = localObject.learnedSentences;
+    srsDone.value = localObject.srsDone;
+  }
 
   // Auth Actions
   async function signup(email, password) {
     this.error = null;
+    this.loading = true;
     const res = await fetch(
       "https://bunpou-resource-server.vercel.app/api/users/signup",
       {
@@ -29,14 +38,36 @@ export const useUserStore = defineStore("userState", () => {
     }
 
     if (res.ok) {
-      this.user = json;
-      localStorage.setItem("user", JSON.stringify(json));
+      /** JSON Format
+       * {
+       *  email: ""
+       *  learnedSentences: []
+       *  srsDone: false
+       *  etc
+       * }
+       */
+      this.email = json.email;
+      this.userID = json.userID;
+      this.learnedSentences = json.learnedSentences;
+      this.srsDone = json.srsDone;
+
+      this.loading = false;
+
+      const saveData = {
+        email: json.email,
+        token: json.token,
+        userID: json.userID,
+        learnedSentences: json.learnedSentences,
+        srsDone: json.srsDone,
+      };
+      localStorage.setItem("user", JSON.stringify(saveData));
       router.go();
     }
   }
 
   async function login(email, password) {
     this.error = null;
+    this.loading = true;
     const res = await fetch(
       "https://bunpou-resource-server.vercel.app/api/users/login",
       {
@@ -52,14 +83,30 @@ export const useUserStore = defineStore("userState", () => {
     }
 
     if (res.ok) {
-      this.user = json;
-      localStorage.setItem("user", JSON.stringify(json));
+      this.email = json.email;
+      this.userID = json.userID;
+      this.learnedSentences = json.learnedSentences;
+      this.srsDone = json.srsDone;
+
+      this.loading = false;
+
+      const saveData = {
+        email: json.email,
+        token: json.token,
+        userID: json.userID,
+        learnedSentences: json.learnedSentences,
+        srsDone: json.srsDone,
+      };
+      localStorage.setItem("user", JSON.stringify(saveData));
       router.go();
     }
   }
 
   async function logout() {
-    this.user = null;
+    this.email = null;
+    this.userID = null;
+    this.learnedSentences = null;
+    this.srsDone = null;
     localStorage.removeItem("user");
     router.go("/");
   }
@@ -93,7 +140,6 @@ export const useUserStore = defineStore("userState", () => {
 
   async function changeSRS(srsValue) {
     this.error = null;
-    const userID = JSON.parse(this.user).userID;
     const res = await fetch(
       "https://bunpou-resource-server.vercel.app/api/users/changeSRS",
       {
@@ -110,12 +156,15 @@ export const useUserStore = defineStore("userState", () => {
 
     if (res.ok) {
       this.error = json.message;
-      this.user.srsDone = srsValue;
+      this.srsDone = srsValue;
     }
   }
 
   return {
-    user,
+    email,
+    userID,
+    learnedSentences,
+    srsDone,
     error,
     loading,
     signup,

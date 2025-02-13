@@ -1,4 +1,4 @@
-<script>
+<script setup>
 import { RouterLink } from "vue-router";
 </script>
 
@@ -10,9 +10,7 @@ import { RouterLink } from "vue-router";
       <RouterLink to="/home/srs"> Go to SRS Practice. </RouterLink>
     </li>
     <li>
-      <RouterLink to="/home/worksheet">
-        Go to Worksheet Practice.
-      </RouterLink>
+      <RouterLink to="/home/worksheet"> Go to Worksheet Practice. </RouterLink>
     </li>
     <li>
       <RouterLink to="/home/jlpt"> Go to JLPT Practice. </RouterLink>
