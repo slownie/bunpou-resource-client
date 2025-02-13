@@ -115,13 +115,12 @@ export const useUserStore = defineStore("userState", () => {
   async function addSentence(sentenceObject) {
     console.log(sentenceObject);
     this.error = null;
-    const userID = JSON.parse(this.user).userID;
     const res = await fetch(
       "https://bunpou-resource-server.vercel.app/api/users/addSentence",
       {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userID, sentenceObject }),
+        body: { userID, sentenceObject },
       }
     );
     const json = await res.json();
@@ -132,7 +131,7 @@ export const useUserStore = defineStore("userState", () => {
 
     if (res.ok) {
       this.error = json.message;
-      this.user.learnedSentences.push(sentenceObject);
+      this.learnedSentences.push(sentenceObject);
     }
   }
 

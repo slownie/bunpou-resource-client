@@ -1,10 +1,16 @@
 <script setup>
+import { useUserStore } from '@/stores/UserStore';
+const userStore = useUserStore();
+
 const props = defineProps({
   point: String,
   jpSentence: String,
   egSentence: String,
-  userID: String,
 });
+
+async function addGrammarPoint() {
+  await userStore.addSentence({jpSentence: props.jpSentence, egSentence: props.egSentence});
+}
 </script>
 
 <template>
@@ -15,12 +21,13 @@ const props = defineProps({
       {{ egSentence }}
     </span>
     <br />
-    <button v-if="userID">Add to your sentences.</button>
+    <button v-if="userStore.userID" @click="addGrammarPoint">Add to your sentences.</button>
   </div>
 </template>
 
 <style>
 .button-container {
   background-color: aliceblue;
+  border-radius: 15%;
 }
 </style>
