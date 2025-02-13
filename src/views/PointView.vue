@@ -47,6 +47,7 @@ const grammarPoint = computed(() => {
         :point="grammarPoint.name"
         :jpSentence="sentence.jp"
         :egSentence="sentence.eg"
+        :userID="userStore.userID"
       />
     </p>
   </section>

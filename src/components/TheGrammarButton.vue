@@ -3,6 +3,7 @@ const props = defineProps({
   point: String,
   jpSentence: String,
   egSentence: String,
+  userID: String,
 });
 </script>
 
@@ -14,7 +15,7 @@ const props = defineProps({
       {{ egSentence }}
     </span>
     <br />
-    <button>Add to your sentences.</button>
+    <button v-if="userID">Add to your sentences.</button>
   </div>
 </template>
 
