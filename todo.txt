@@ -6,11 +6,11 @@
 * Change Pinia store to seperate objects rather than one string object
 
 ==Grammar Points==
-+ Implemenet the grammar button component and the option to add sentences to the user's sentences array
++ Implement the grammar button component and the option to add sentences to the user's sentences array
 * Change the 'Add to study list' to add the four main sentences to the user's sentences array and disable afterwards
 
 ==SRS Practice==
-+ Implemenet the SRS system
++ Implement the SRS system
 + Implement a 'No cards available' screen when the user's sentences array is empty
 * Change the component to use user's sentences instead of the test data
 * Change the srsDone variable when the user is actually finished the SRS
@@ -21,4 +21,4 @@
 * Reset quiz progress on exit/completion
 
 ==Conjugation Practice==
-+ Implemenet this
++ Implement this

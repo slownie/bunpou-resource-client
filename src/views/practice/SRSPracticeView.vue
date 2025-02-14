@@ -3,7 +3,6 @@ import { ref, computed } from "vue";
 import { RouterLink } from "vue-router";
 
 import { useUserStore } from "@/stores/UserStore";
-import sourceData from "@/data/sentences.json";
 
 const userStore = useUserStore();
 const userSentences = [];
@@ -14,6 +13,7 @@ const srsCompleted = ref();
 const flipCard = ref(false);
 
 const getCurrentCard = computed(() => {
+  // Check if sentences are empty
   let card = userSentences[currentQuestion.value];
   return card;
 });
@@ -40,7 +40,7 @@ const incorrectAnswer = () => {
   <h1>SRS Practice</h1>
   <main class="app">
     <section class="quiz" v-if="!srsCompleted">
-      <section v-if="userSentences == 0">
+      <section v-if="userSentences.length == 0">
         <h2>Your sentence deck is currently empty.</h2>
         <p>
           Go to the
@@ -48,7 +48,8 @@ const incorrectAnswer = () => {
           to add some.
         </p>
       </section>
-      <div class="quiz-info">
+
+      <div class="quiz-info" v-else>
         <span class="question" v-if="!flipCard">
           {{ getCurrentCard.jpSentence }}
         </span>

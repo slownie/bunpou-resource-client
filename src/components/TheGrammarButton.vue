@@ -12,6 +12,7 @@ const props = defineProps({
 async function addGrammarPoint() {
   await userStore.addSentence({
     jpSentence: props.jpSentence,
+    jpHTML: props.jpHTML,
     egSentence: props.egSentence,
     grammarPoint: props.point,
   });
