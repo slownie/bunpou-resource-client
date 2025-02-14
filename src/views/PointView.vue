@@ -45,6 +45,7 @@ const grammarPoint = computed(() => {
       </span> -->
       <TheGrammarButton
         :point="grammarPoint.name"
+        :jpHTML="sentence.jpHTML"
         :jpSentence="sentence.jp"
         :egSentence="sentence.eg"
       />

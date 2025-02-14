@@ -7,18 +7,22 @@
       "conjugation": "Test Conjugation",
       "sentences": [
         {
+          "jpHTML": "Test JPHTML",
           "jp": "Test JP",
           "eg": "Test EG"
         },
         {
+          "jpHTML": "Test JPHTML",
           "jp": "",
           "eg": ""
         },
         {
+          "jpHTML": "Test JPHTML",
           "jp": "",
           "eg": ""
         },
         {
+          "jpHTML": "Test JPHTML",
           "jp": "",
           "eg": ""
         }
@@ -32,19 +36,23 @@
       "conjugation": "Verb[Stem]＋あう<br/>(A)＋合う (“To do (A) together/To do (A) for our benefit”)",
       "sentences": [
         {
+          "jpHTML": "こういう時こそ、助け<span class='warning-text'>合う</span>のが大切だね。",
           "jp": "こういう時こそ、助け合うのが大切だね。",
           "eg": "At times like this, it’s important to help each other out."
         },
         {
-          "jp": "二人はいつも言い<span class='warning-text'>合って</span>いますね。のが大切だね。",
+          "jpHTML": "二人はいつも言い<span class='warning-text'>合って</span>いますね。のが大切だね。",
+          "jp": "二人はいつも言い合っていますね。",
           "eg": "Those two are always arguing aren’t they?"
         },
         {
-          "jp": "隣の人と相談し<span class='warning-text'>合って</span>答えを考えてください。",
+          "jpHTML": "隣の人と相談し<span class='warning-text'>合って</span>答えを考えてください。",
+          "jp": "隣の人と相談し合って答えを考えてください。",
           "eg": "Consult with the person beside you and think about the answer."
         },
         {
-          "jp": "自分の写真を見せ<span class='warning-text'>合い</span>ましょう。",
+          "jpHTML": "自分の写真を見せ<span class='warning-text'>合い</span>ましょう。",
+          "jp": "自分の写真を見せ合いましょう。",
           "eg": "Let’s show each other our pictures!"
         }
       ]
@@ -57,19 +65,23 @@
       "conjugation": "いくら＋Noun＋でも<br/>いくら＋Verb[て-Form]＋も<br/>いくら＋な-Adjective＋でも<br/>いくら＋Adjective[くて]＋も<br/>いくら・どんなに(A)でも(B) (“No matter how much (A), (B)”)",
       "sentences": [
         {
-          "jp": "<span class='warning-text'>いくら</span>頑張っ<span class='warning-text'>ても</span>、彼にはかなわない。",
+          "jpHTML": "<span class='warning-text'>いくら</span>頑張っ<span class='warning-text'>ても</span>、彼にはかなわない。",
+          "jp": "いくら頑張っても、彼にはかなわない。",
           "eg": "No matter how hard I try, I can’t compete with him."
         },
         {
-          "jp": "<span class='warning-text'>どんなに</span>辛く<span class='warning-text'>ても</span>、泣かないよ！",
+          "jpHTML": "<span class='warning-text'>どんなに</span>辛く<span class='warning-text'>ても</span>、泣かないよ！",
+          "jp":"どんなに辛くても、泣かないよ！",
           "eg": "Don’t cry no matter how hard it is!"
         },
         {
-          "jp": "<span class='warning-text'>いくら</span>ミス<span class='warning-text'>でも</span>、会社は彼を首にしません。",
+          "jpHTML": "<span class='warning-text'>いくら</span>ミス<span class='warning-text'>でも</span>、会社は彼を首にしません。",
+          "jp": "いくらミスでも、会社は彼を首にしません。",
           "eg": "It doesn't matter how many mistakes there are, the company won’t fire him."
         },
         {
-          "jp": "<span class='warning-text'>どんなに</span>便利<span class='warning-text'>でも</span>、このソフトを使わない。",
+          "jpHTML": "<span class='warning-text'>どんなに</span>便利<span class='warning-text'>でも</span>、このソフトを使わない。",
+          "jp": "どんなに便利でも、このソフトを使わない。",
           "eg": "No matter how convenient this software is, I’m not using it."
         }
       ]
@@ -82,19 +94,23 @@
       "conjugation": "Verb＋いっぽうだ<br/>(A)いっぽうだ (“It is continuing to (A)”)",
       "sentences": [
         {
-          "jp": "日本の物価は高くなる<span class='warning-text'>一方だ</span>。",
+          "jpHTML": "日本の物価は高くなる<span class='warning-text'>一方だ</span>。",
+          "jp": "日本の物価は高くなる一方だ。",
           "eg": "The cost of living in Japan keeps rising."
         },
         {
-          "jp": "全然運動していないため、体力は衰える<span class='warning-text'>一方だ</span>。",
+          "jpHTML": "全然運動していないため、体力は衰える<span class='warning-text'>一方だ</span>。",
+          "jp": "全然運動していないため、体力は衰える一方だ。",
           "eg": "Since I’m not exercising at all, my physical strength is steadily declining."
         },
         {
-          "jp": "残念ながらこんな事件が増える<span class='warning-text'>一方だ</span>。",
+          "jpHTML": "残念ながらこんな事件が増える<span class='warning-text'>一方だ</span>。",
+          "jp": "残念ながらこんな事件が増える一方だ。",
           "eg": "Unfortunately, there are more and more cases like these."
         },
         {
-          "jp": "高齢化が進んで、人口が減る<span class='warning-text'>一方だ</span>。",
+          "jpHTML": "高齢化が進んで、人口が減る<span class='warning-text'>一方だ</span>。",
+          "jp": "高齢化が進んで、人口が減る一方だ。",
           "eg": "Because of the aging society, the population continues to decline."
         }
       ]
@@ -107,19 +123,23 @@
       "conjugation": "Noun＋[の・である]＋うえに<br/>Verb＋うえに<br/>な-Adjective＋[な・である]＋うえに<br/>い-Adjective＋うえに",
       "sentences": [
         {
-          "jp": "ここの料理は美味しい<span class='warning-text'>上に</span>安い。",
+          "jpHTML": "ここの料理は美味しい<span class='warning-text'>上に</span>安い。",
+          "jp": "ここの料理は美味しい上に安い。",
           "eg": "The food here is tasty and it’s cheap too."
         },
         {
-          "jp": "今日は寒い<span class='warning-text'>上に</span>風が強い。",
+          "jpHTML": "今日は寒い<span class='warning-text'>上に</span>風が強い。",
+          "jp":"今日は寒い上に風が強い。",
           "eg": "Today is cold, and on top of that, the wind is strong."
         },
         {
-          "jp": "この病は治る可能性は低い<span class='warning-text'>上に</span>、治療費も高額だ。",
+          "jpHTML": "この病は治る可能性は低い<span class='warning-text'>上に</span>、治療費も高額だ。",
+          "jp": "この病は治る可能性は低い上に、治療費も高額だ。",
           "eg": "This illness has a low likelihood of being cured, and the treatment costs are high."
         },
         {
-          "jp": "ケントさんは新聞記者である<span class='warning-text'>上に</span>スーパーヒーローでもあった。",
+          "jpHTML": "ケントさんは新聞記者である<span class='warning-text'>上に</span>スーパーヒーローでもあった。",
+          "jp": "ケントさんは新聞記者である上にスーパーヒーローでもあった。",
           "eg": "Kent-san was a newspaper reporter as well as a superhero."
         }
       ]
@@ -132,19 +152,23 @@
       "conjugation": "Noun＋として<br/>Noun＋として＋Noun",
       "sentences": [
         {
-          "jp": "留学生<span class='warning-text'>として</span>日本へ来ました。",
+          "jpHTML": "留学生<span class='warning-text'>として</span>日本へ来ました。",
+          "jp": "留学生として日本へ来ました。",
           "eg": "I came to Japan as an international student."
         },
         {
-          "jp": "けいじは友達<span class='warning-text'>として</span>はいい人なんだけど、ルームメイトとしてはよくない。",
+          "jpHTML": "けいじは友達<span class='warning-text'>として</span>はいい人なんだけど、ルームメイトとしてはよくない。",
+          "jp": "けいじは友達としてはいい人なんだけど、ルームメイトとしてはよくない。",
           "eg": "Keiji is a nice person as a friend, but not as a roommate."
         },
         {
-          "jp": "東京タワーは東京の観光地<span class='warning-text'>として</span>有名だ。",
+          "jpHTML": "東京タワーは東京の観光地<span class='warning-text'>として</span>有名だ。",
+          "jp": "東京タワーは東京の観光地として有名だ。",
           "eg": "Tokyo Tower is famous as a tourist attraction in Tokyo."
         },
         {
-          "jp": "この考えはアイデア<span class='warning-text'>として</span>はいいが、コストや開発期間を考えると難しいと思う。",
+          "jpHTML": "この考えはアイデア<span class='warning-text'>として</span>はいいが、コストや開発期間を考えると難しいと思う。",
+          "jp": "この考えはアイデアとしてはいいが、コストや開発期間を考えると難しいと思う。",
           "eg": "This idea is good as a concept, but considering the cost and development time, I think it’s difficult."
         }
       ]
@@ -157,20 +181,53 @@
       "conjugation": "Noun＋において<br/>Noun＋における＋Noun",
       "sentences": [
         {
-          "jp": "車内<span class='warning-text'>における</span>携帯電話のご利用はご遠慮ください。",
+          "jpHTML": "車内<span class='warning-text'>における</span>携帯電話のご利用はご遠慮ください。",
+          "jp": "車内における携帯電話のご利用はご遠慮ください。",
           "eg": "Please refrain from using mobile phones inside the car."
         },
         {
-          "jp": "2020年のオリンピックは東京<span class='warning-text'>において</span>行われました。",
+          "jpHTML": "2020年のオリンピックは東京<span class='warning-text'>において</span>行われました。",
+          "jp": "2020年のオリンピックは東京において行われました。",
           "eg": "The 2020 Olympics were held in Tokyo."
         },
         {
-          "jp": "海外<span class='warning-text'>において</span>日本酒の需要が高まっている。",
+          "jpHTML": "海外<span class='warning-text'>において</span>日本酒の需要が高まっている。",
+          "jp": "海外において日本酒の需要が高まっている。",
           "eg": "The demand for Japanese sake overseas is rising."
         },
         {
-          "jp": "日本<span class='warning-text'>における</span>英語教育は依然として、問題だらけです。",
+          "jpHTML": "日本<span class='warning-text'>における</span>英語教育は依然として、問題だらけです。",
+          "jp": "日本における英語教育は依然として、問題だらけです。",
           "eg": "English education in Japan is still full of problems."
+        }
+      ]
+    },
+
+    {
+      "id": "7",
+      "name": "うちに",
+      "desc": "A conjunction that expresses that while/during the period in which (A) occurs, (B) should be done. This has the same meaning as ‘while’ or ‘during’ in English.",
+      "conjugation": "Noun＋の＋うちに<br/>Verb[ている]＋うちに<br/>な-Adjective＋な＋うちに<br/>い-Adjective＋うちに<br/>(A)うちに(B) “While (A), (B)”",
+      "sentences": [
+        {
+          "jpHTML": "どうぞ、温かい<span class='warning-text'>うちに</span>召し上がってください。",
+          "jp": "どうぞ、温かいうちに召し上がってください。",
+          "eg": "Please enjoy it while it’s warm."
+        },
+        {
+          "jpHTML": "会わない<span class='warning-text'>うちに</span>、随分大人っぽくなりましたね。",
+          "jp": "会わないうちに、随分大人っぽくなりましたね。",
+          "eg": "While we haven’t seen each other, you’ve become quite mature."
+        },
+        {
+          "jpHTML": "学生の<span class='warning-text'>うちに</span>、したいことがありますか。",
+          "jp": "学生のうちに、したいことがありますか。",
+          "eg": "Is there something you want to do while you’re still a student?"
+        },
+        {
+          "jpHTML": "祖父母が元気な<span class='warning-text'>うちに</span>、たくさん思い出を作りたいね。",
+          "jp": "祖父母が元気なうちに、たくさん思い出を作りたいね。",
+          "eg": "Let’s make a lot of memories while our grandparents are healthy."
         }
       ]
     }

@@ -3,6 +3,7 @@ import { useUserStore } from "@/stores/UserStore";
 const userStore = useUserStore();
 
 const props = defineProps({
+  jpHTML: String,
   point: String,
   jpSentence: String,
   egSentence: String,
@@ -19,7 +20,7 @@ async function addGrammarPoint() {
 
 <template>
   <div class="button-container">
-    <span v-html="jpSentence"></span>
+    <span v-html="jpHTML"></span>
     <br />
     <span class="eg-text">
       {{ egSentence }}
