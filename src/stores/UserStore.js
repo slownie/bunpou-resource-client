@@ -114,7 +114,6 @@ export const useUserStore = defineStore("userState", () => {
   // Data Actions
   async function addSentence(sentenceObject) {
     const sendUserID = userID.value;
-    console.log(sentenceObject)
     this.error = null;
     const res = await fetch(
       "https://bunpou-resource-server.vercel.app/api/users/addSentence",
@@ -138,8 +137,6 @@ export const useUserStore = defineStore("userState", () => {
 
       const saveData = JSON.parse(localStorage.getItem("user"));
       saveData.learnedSentences.push(sentenceObject);
-      console.log(saveData.learnedSentences);
-      console.log(saveData);
 
       this.learnedSentences = saveData.learnedSentences;
       localStorage.setItem("user", JSON.stringify(saveData));
@@ -155,7 +152,7 @@ export const useUserStore = defineStore("userState", () => {
       {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userID, srsValue }),
+        body: JSON.stringify({ userID: this.userID, srsDone: srsValue }),
       }
     );
     const json = await res.json();
@@ -166,7 +163,14 @@ export const useUserStore = defineStore("userState", () => {
 
     if (res.ok) {
       this.error = json.message;
-      srsDone = srsValue;
+
+      // Save to localStroage
+      const saveData = JSON.parse(localStorage.getItem("user"));
+      saveData.srsDone = srsValue;
+      localStorage.setItem("user", JSON.stringify(saveData));
+
+      // Update srsDone in Pinia
+      this.srsDone = srsValue;
     }
   }
 

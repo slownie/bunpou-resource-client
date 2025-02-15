@@ -6,7 +6,6 @@ import { useUserStore } from "@/stores/UserStore";
 
 const userStore = useUserStore();
 const userSentences = userStore.learnedSentences;
-console.log(userSentences)
 
 // Quiz Setup
 const currentQuestion = ref(0);
@@ -28,6 +27,7 @@ const getNextQuestion = () => {
 
   // Change srsDone for userStore
   userStore.changeSRS(true);
+  srsCompleted.value = true;
 };
 
 const correctAnswer = () => {
