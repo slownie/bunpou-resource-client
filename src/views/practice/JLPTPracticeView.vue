@@ -8,9 +8,7 @@ import sourceData from "@/data/jlpt.json";
 const currentQuestion = ref(0);
 const quizCompleted = ref(false);
 const questionList = ref(sourceData.n5);
-
-console.log(questionList.value);
-console.log(questionList.length);
+console.log(questionList.value.length);
 
 // Score
 const score = computed(() => {
@@ -35,7 +33,7 @@ const getCurrentQuestion = computed(() => {
 
 // Increment to the next question
 const getNextQuestion = () => {
-  if (currentQuestion.value < questionList.length) {
+  if (currentQuestion.value < questionList.value.length - 1) {
     currentQuestion.value++;
     return;
   }
