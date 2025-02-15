@@ -5,7 +5,8 @@ import { RouterLink } from "vue-router";
 import { useUserStore } from "@/stores/UserStore";
 
 const userStore = useUserStore();
-const userSentences = [];
+const userSentences = userStore.learnedSentences;
+console.log(userSentences)
 
 // Quiz Setup
 const currentQuestion = ref(0);

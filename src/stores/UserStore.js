@@ -114,6 +114,7 @@ export const useUserStore = defineStore("userState", () => {
   // Data Actions
   async function addSentence(sentenceObject) {
     const sendUserID = userID.value;
+    console.log(sentenceObject)
     this.error = null;
     const res = await fetch(
       "https://bunpou-resource-server.vercel.app/api/users/addSentence",
