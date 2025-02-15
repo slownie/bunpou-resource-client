@@ -10,7 +10,7 @@ console.log(userSentences)
 
 // Quiz Setup
 const currentQuestion = ref(0);
-const srsCompleted = ref();
+const srsCompleted = ref(userStore.srsDone);
 const flipCard = ref(false);
 
 const getCurrentCard = computed(() => {
@@ -20,12 +20,14 @@ const getCurrentCard = computed(() => {
 });
 
 const getNextQuestion = () => {
-  if (currentQuestion.value < userSentences - 1) {
+  if (currentQuestion.value < userSentences.length - 1) {
     currentQuestion.value++;
     flipCard.value = false;
     return;
   }
-  srsCompleted.value = true;
+
+  // Change srsDone for userStore
+  userStore.changeSRS(true);
 };
 
 const correctAnswer = () => {
@@ -54,9 +56,9 @@ const incorrectAnswer = () => {
         <span class="question" v-if="!flipCard">
           {{ getCurrentCard.jpSentence }}
         </span>
-        <span v-else>
-          {{ getCurrentCard.jpSentence }}
-          {{ getCurrentCard.enSentence }}
+        <span class="question" v-else>   
+          <span v-html="getCurrentCard.jpHTML"></span>       
+          {{ getCurrentCard.egSentence }}
           {{ getCurrentCard.grammarPoint }}
         </span>
 
@@ -190,5 +192,10 @@ const incorrectAnswer = () => {
   color: #8f8f8f;
   font-size: 1.5rem;
   text-align: center;
+}
+
+.warning-text {
+  color: #cc0000;
+  font-weight: bold;
 }
 </style>

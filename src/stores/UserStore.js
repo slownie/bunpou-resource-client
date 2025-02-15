@@ -166,7 +166,7 @@ export const useUserStore = defineStore("userState", () => {
 
     if (res.ok) {
       this.error = json.message;
-      this.srsDone = srsValue;
+      srsDone = srsValue;
     }
   }
 
