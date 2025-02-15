@@ -77,6 +77,9 @@ const incorrectAnswer = () => {
         Go back to
         <RouterLink to="/home">Grammar Practice</RouterLink>.
       </p>
+      <p>
+        If you added sentences today and already did your SRS today, they will show up tomorrow.
+      </p>
     </section>
   </main>
 </template>
