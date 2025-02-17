@@ -3,18 +3,12 @@
 
 ==General==
 * Convert any Options-API code into its Composition-API equivalent
-* Change Pinia store to seperate objects rather than one string object
 
-==Grammar Points==
-+ Implement the grammar button component and the option to add sentences to the user's sentences array
-* Change the 'Add to study list' to add the four main sentences to the user's sentences array and disable afterwards
+==Overlay==
++ Implement when making requests
 
 ==SRS Practice==
 + Implement the SRS system
-+ Implement a 'No cards available' screen when the user's sentences array is empty
-* Change the component to use user's sentences instead of the test data
-* Change the srsDone variable when the user is actually finished the SRS
-* Have the system change this variable when a day passes
 
 ==JLPT Practice==
 + Implement selectable different levels (N5, N4, N3, N2, N1)

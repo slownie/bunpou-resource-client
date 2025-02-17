@@ -16,14 +16,8 @@ const grammarPoint = computed(() => {
 
 <template>
   <section v-if="grammarPoint" class="grammar-body">
-    <div class="topbar">
-      <h1>{{ grammarPoint.name }}</h1>
-      <button v-if="userStore.userID" @click="addGrammarPoint">
-        Add to study list
-      </button>
-    </div>
-
-    <p v-if="userStore.error">{{ userStore.error }}</p>
+    <h1>{{ grammarPoint.name }}</h1>
+    <p v-if="userStore.error" class="error-message">{{ userStore.error }}</p>
     <!--<hr class="divider" />-->
     <div v-html="grammarPoint.desc"></div>
     <br />
@@ -71,5 +65,9 @@ const grammarPoint = computed(() => {
 .warning-text {
   color: #cc0000;
   font-weight: bold;
+}
+
+.error-message {
+  color: red
 }
 </style>

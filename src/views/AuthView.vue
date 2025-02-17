@@ -1,72 +1,39 @@
-<script>
+<script setup>
 import { ref } from "vue";
 import { useUserStore } from "../stores/UserStore";
 
-export default {
-  setup() {
-    const userStore = useUserStore();
-    const signupOrLogin = ref(true);
-    return { userStore, signupOrLogin };
-  },
+const userStore = useUserStore();
+const signupOrLogin = ref(true); // True=Signup False=Login
 
-  data() {
-    return {
-      email: "",
-      password: "",
-    };
-  },
+const email = ref('');
+const password = ref('');
 
-  methods: {
-    async signup() {
-      await this.userStore.signup(this.email, this.password);
-    },
-    async login() {
-      await this.userStore.login(this.email, this.password);
-    },
-  },
-};
+async function auth() {
+  // Signup
+  if (signupOrLogin) {
+    await userStore.signup(email.value, password.value);
+  } else {
+  // Login
+    await userStore.login(email.value, password.value);
+  }
+  
+}
 </script>
 
 <template>
   <!--When project is finished, change this to only one form-->
-  <div v-if="signupOrLogin === true">
-    <h1>Sign Up</h1>
-    <form @submit.prevent="signup" class="authform">
+  <div>
+    <h1>{{ signupOrLogin ? 'Sign Up' : 'Login' }}</h1>
+    <form @submit.capture.prevent="auth" class="authform">
       <label>Email</label>
-      <input type="text" v-model="email" />
+      <input type="email" v-model="email" placeholder="Email"/>
+      
       <label>Password</label>
-      <input type="password" v-model="password" />
+      <input type="password" v-model="password" placeholder="Password"/>
+
       <p v-if="userStore.error" class="error">{{ userStore.error }}</p>
-      <div class="buttons">
-        <button type="submit" class="submit-button">Sign Up</button>
-        <br />
-        <button
-          class="change-button"
-          @click="signupOrLogin = !this.signupOrLogin"
-        >
-          Login Instead
-        </button>
-      </div>
-    </form>
-  </div>
-  <div v-else>
-    <h1>Login</h1>
-    <form @submit.prevent="login" class="authform">
-      <label>Email</label>
-      <input type="text" v-model="email" />
-      <label>Password</label>
-      <input type="password" v-model="password" />
-      <div class="buttons">
-        <p v-if="userStore.error" class="error">{{ userStore.error }}</p>
-        <button type="submit" class="submit-button">Login</button>
-        <br />
-        <button
-          class="change-button"
-          @click="signupOrLogin = !this.signupOrLogin"
-        >
-          Sign Up Instead
-        </button>
-      </div>
+      <button class="submit-button" @click.self="">{{ signupOrLogin ? 'Sign Up' : 'Login' }}</button>
+      <button class="submit-button" @click.self="">{{ signupOrLogin ? 'Login Instead' : 'Sign Up Instead' }}</button>
     </form>
   </div>
 </template>

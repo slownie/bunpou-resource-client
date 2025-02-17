@@ -28,13 +28,14 @@ export const useUserStore = defineStore("userState", () => {
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email: email, password: password }),
       }
     );
     const json = await res.json();
 
     if (!res.ok) {
       this.error = json.error;
+      this.loading = false;
     }
 
     if (res.ok) {
@@ -80,6 +81,7 @@ export const useUserStore = defineStore("userState", () => {
 
     if (!res.ok) {
       this.error = json.error;
+      this.loading = false;
     }
 
     if (res.ok) {
@@ -115,6 +117,7 @@ export const useUserStore = defineStore("userState", () => {
   async function addSentence(sentenceObject) {
     const sendUserID = userID.value;
     this.error = null;
+    this.loading = true
     const res = await fetch(
       "https://bunpou-resource-server.vercel.app/api/users/addSentence",
       {
@@ -129,6 +132,7 @@ export const useUserStore = defineStore("userState", () => {
     const json = await res.json();
     if (!res.ok) {
       this.error = json.error;
+      this.loading = false;
     }
 
     if (res.ok) {
@@ -140,6 +144,7 @@ export const useUserStore = defineStore("userState", () => {
 
       this.learnedSentences = saveData.learnedSentences;
       localStorage.setItem("user", JSON.stringify(saveData));
+      this.loading = false;
     }
   }
 
