@@ -1,9 +1,6 @@
 + = Addition
 * = Bugfix
 
-==General==
-* Convert any Options-API code into its Composition-API equivalent
-
 ==Overlay==
 + Implement when making requests
 

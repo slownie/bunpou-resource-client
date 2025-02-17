@@ -5,35 +5,49 @@ import { useUserStore } from "../stores/UserStore";
 const userStore = useUserStore();
 const signupOrLogin = ref(true); // True=Signup False=Login
 
-const email = ref('');
-const password = ref('');
+const email = ref("");
+const password = ref("");
 
 async function auth() {
   // Signup
   if (signupOrLogin) {
     await userStore.signup(email.value, password.value);
   } else {
-  // Login
+    // Login
     await userStore.login(email.value, password.value);
   }
-  
+}
+
+function swap() {
+  signupOrLogin.value = !signupOrLogin.value;
 }
 </script>
 
 <template>
   <!--When project is finished, change this to only one form-->
   <div>
-    <h1>{{ signupOrLogin ? 'Sign Up' : 'Login' }}</h1>
-    <form @submit.capture.prevent="auth" class="authform">
+    <h1>{{ signupOrLogin ? "Sign Up" : "Login" }}</h1>
+    <form @submit.prevent="auth" class="authform">
       <label>Email</label>
-      <input type="email" v-model="email" placeholder="Email"/>
-      
+      <input type="email" v-model="email" placeholder="Email" required />
+
       <label>Password</label>
-      <input type="password" v-model="password" placeholder="Password"/>
+      <input
+        type="password"
+        v-model="password"
+        placeholder="Password"
+        required
+      />
 
       <p v-if="userStore.error" class="error">{{ userStore.error }}</p>
-      <button class="submit-button" @click.self="">{{ signupOrLogin ? 'Sign Up' : 'Login' }}</button>
-      <button class="submit-button" @click.self="">{{ signupOrLogin ? 'Login Instead' : 'Sign Up Instead' }}</button>
+
+      <button class="submit-button">
+        {{ signupOrLogin ? "Sign Up" : "Login" }}
+      </button>
+
+      <button class="submit-button" @click.prevent.stop="swap">
+        {{ signupOrLogin ? "Login Instead" : "Sign Up Instead" }}
+      </button>
     </form>
   </div>
 </template>
