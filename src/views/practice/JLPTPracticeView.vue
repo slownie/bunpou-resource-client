@@ -5,6 +5,7 @@ import { RouterLink } from "vue-router";
 import sourceData from "@/data/jlpt.json";
 
 // Quiz Setup
+const jlptLevel = ref(0);
 const currentQuestion = ref(0);
 const quizCompleted = ref(false);
 const questionList = ref(sourceData.n5);
@@ -49,6 +50,25 @@ const setAnswer = (e) => {
 
 <template>
   <main class="app">
+    <!--JLPT Selection-->
+    <p>Please select the JLPT level you would like to test.</p>
+    <div class="radio-buttons">
+      <input type="radio" name="jlpt" id="n5" value="5" v-model="jlptLevel" />
+      <label for="n5">N5</label>
+
+      <input type="radio" name="jlpt" id="n4" value="4" v-model="jlptLevel" />
+      <label for="n4">N4</label>
+
+      <input type="radio" name="jlpt" id="n3" value="3" v-model="jlptLevel" />
+      <label for="n3">N3</label>
+
+      <input type="radio" name="jlpt" id="n2" value="2" v-model="jlptLevel" />
+      <label for="n2">N2</label>
+
+      <input type="radio" name="jlpt" id="n1" value="1" v-model="jlptLevel" />
+      <label for="n1">N1</label>
+    </div>
+
     <!--Quiz Section-->
     <section class="quiz" v-if="!quizCompleted">
       <div class="quiz-info">
@@ -116,6 +136,12 @@ const setAnswer = (e) => {
 </template>
 
 <style>
+.radio-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 * {
   margin: 0;
   padding: 0;
