@@ -8,7 +8,7 @@ const userStore = useUserStore();
 </script>
 
 <template>
-  <TheLoadingComponent v-if="userStore.loading"/>
+  <TheLoadingComponent v-show="userStore.loading"/>
   <TheNavigation />
   <div class="container">
     <RouterView />

@@ -1,8 +1,14 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onUpdated } from "vue";
 import { RouterLink } from "vue-router";
 
 const props = defineProps({ questionList: Array });
+
+// Quiz Reset
+onUpdated(() => {
+  currentQuestion.value = 0;
+  quizCompleted.value = false;
+})
 
 // Quiz Setup
 const currentQuestion = ref(0);
