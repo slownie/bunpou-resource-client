@@ -230,6 +230,37 @@
           "eg": "Let’s make a lot of memories while our grandparents are healthy."
         }
       ]
+    },
+
+    {
+      "id": "8",
+      "name": "おかげで",
+      "desc": "An expression that is used to give thanks to the source of a good outcome. Typically this is used for individuals (coworkers, friends, teachers, etc) but can also be used for anything. Additionally, it can also be used sarcastically/ironically when a bad result occurs.",
+      "conjugation": "Noun＋の＋おかげで<br/>Verb＋おかげで<br/>な-Adjective＋な＋おかげで<br/>い-Adjective＋おかげで<br/>(A)おかげで(B) “Thanks to (A), (B)”",
+      "sentences": [
+        {
+          "jpHTML": "先生の<span class='warning-text'>お陰で</span>JLPT N3に合格できました。",
+          "jp": "先生のお陰でJLPT N3に合格できました。",
+          "eg": "Thanks to my teacher, I passed the JLPT N3."
+        },
+
+        
+        {
+          "jpHTML": "一生懸命勉強した<span class='warning-text'>お陰で</span>、いい会社に就職することができました。",
+          "jp": "一生懸命勉強したお陰で、いい会社に就職することができました。",
+          "eg": "Thanks to me studying hard, I was able to get a job at a good company."
+        },
+        {
+          "jpHTML": "彼のコミュ力が下手な<span class='warning-text'>おかげで</span>、取引は失敗だった。",
+          "jp": "彼のコミュ力が下手なおかげで、取引は失敗だった。",
+          "eg": "Thanks to his terrible communication skills, the deal was a failure."
+        },
+        {
+          "jpHTML": "風が強い<span class='warning-text'>お陰で</span>、ヨットのスピードが上がった。",
+          "jp": "風が強いお陰で、ヨットのスピードが上がった。",
+          "eg": "Thanks to the strong wind, the yacht gained speed."
+        }
+      ]
     }
   ]
 }

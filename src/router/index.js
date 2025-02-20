@@ -55,11 +55,11 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
 
-    {
-      path: "/home/worksheet",
-      component: () => import("@/views/practice/WorksheetPracticeView.vue"),
-      meta: { requiresAuth: true },
-    },
+    // {
+    //   path: "/home/worksheet",
+    //   component: () => import("@/views/practice/WorksheetPracticeView.vue"),
+    //   meta: { requiresAuth: true },
+    // },
 
     {
       path: "/home/jlpt/:id",

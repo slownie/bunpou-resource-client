@@ -1,15 +1,17 @@
 + = Addition
 * = Bugfix
 
-==Overlay==
-+ Implement when making requests
+==General==
++ Implement the rest of the grammar points
++ Use CSS to make the site look better
++ Add accessibility
++ Test components
 
 ==SRS Practice==
 + Implement the SRS system
 
 ==JLPT Practice==
-+ Implement selectable different levels (N5, N4, N3, N2, N1)
-* Reset quiz progress on exit/completion
++ Add questions for each JLPT level
 
 ==Conjugation Practice==
-+ Implement this
++ Think of a better idea for conjugation practice

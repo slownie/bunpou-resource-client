@@ -9,9 +9,10 @@ import { RouterLink } from "vue-router";
     <li>
       <RouterLink to="/home/srs"> Go to SRS Practice. </RouterLink>
     </li>
-    <li>
+    <!--On hold until I can think of a better concept for this-->
+    <!-- <li>
       <RouterLink to="/home/worksheet"> Go to Worksheet Practice. </RouterLink>
-    </li>
+    </li> -->
     <h3>JLPT</h3>
     <li><RouterLink to="/home/jlpt/5"> N5 </RouterLink></li>
     <li><RouterLink to="/home/jlpt/4"> N4 </RouterLink></li>
