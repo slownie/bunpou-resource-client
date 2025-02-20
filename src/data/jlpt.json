@@ -5,24 +5,28 @@
         "question": "Please select the correct particle.",
         "sentence": "トムさん＿どう思いますか。",
         "answers": ["は", "ば", "に", "を"],
-        "rightAnswer": "は",
-        "selected": null
+        "rightAnswer": "は"
       },
       {
         "id": "1",
         "question": "Please select the correct particle.",
         "sentence": "トムさん＿どう思いますか。",
         "answers": ["は", "ば", "に", "を"],
-        "rightAnswer": "に",
-        "selected": null
+        "rightAnswer": "に"
       },
       {
         "id": "2",
         "question": "Please select the correct particle.",
         "sentence": "トムさん＿どう思いますか。",
         "answers": ["は", "ば", "に", "を"],
-        "rightAnswer": "に",
-        "selected": null
+        "rightAnswer": "に"
+      },
+      {
+        "id": "2",
+        "question": "Please select the correct particle.",
+        "sentence": "トムさん＿どう思いますか。",
+        "answers": ["は", "ば", "に", "を"],
+        "rightAnswer": "に"
       }
     ],
       

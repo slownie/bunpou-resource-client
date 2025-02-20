@@ -1,10 +1,9 @@
 <script setup>
-import { ref, computed, onUpdated } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { RouterLink } from "vue-router";
 
 const props = defineProps({ questionList: Array });
 const questions = ref(props.questionList);
-console.log(questions.value.length);
 
 // Quiz Setup
 const currentQuestion = ref(0);
@@ -26,7 +25,6 @@ const score = computed(() => {
 // Get the current question via index
 const getCurrentQuestion = computed(() => {
   let question = questions.value[currentQuestion.value];
-  console.log(question);
   return question;
 });
 
@@ -90,7 +88,7 @@ const setAnswer = (e) => {
 
       <button @click="getNextQuestion" :disabled="!getCurrentQuestion.selected">
         {{
-          getCurrentQuestion.index == questions.value.length - 1
+          getCurrentQuestion.index == (questions.length  - 1)
             ? "Finish"
             : getCurrentQuestion.selected == null
             ? "Select an option"
@@ -100,7 +98,7 @@ const setAnswer = (e) => {
     </section>
     <section v-else>
       <h2>You have finished the quiz!</h2>
-      <p>Your score is {{ score }}/{{ questions.value.length }}</p>
+      <p>Your score is {{ score }}/{{ questions.length  }}</p>
       <p>
         Go back to
         <RouterLink to="/home">Grammar Practice</RouterLink>.
