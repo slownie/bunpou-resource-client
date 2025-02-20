@@ -62,7 +62,7 @@ const router = createRouter({
     },
 
     {
-      path: "/home/jlpt",
+      path: "/home/jlpt/:id",
       component: () => import("@/views/practice/JLPTPracticeView.vue"),
       meta: { requiresAuth: true },
     },

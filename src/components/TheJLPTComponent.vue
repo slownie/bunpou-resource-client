@@ -3,12 +3,8 @@ import { ref, computed, onUpdated } from "vue";
 import { RouterLink } from "vue-router";
 
 const props = defineProps({ questionList: Array });
-
-// Quiz Reset
-onUpdated(() => {
-  currentQuestion.value = 0;
-  quizCompleted.value = false;
-})
+const questions = ref(props.questionList);
+console.log(questions.value.length);
 
 // Quiz Setup
 const currentQuestion = ref(0);
@@ -16,26 +12,27 @@ const quizCompleted = ref(false);
 const score = computed(() => {
   let value = 0;
   // Setting the score
-  props.questionList.map((q) => {
+  questions.value.map((q) => {
     if (q.selected != null && q.rightAnswer == q.selected) {
       value++;
     }
   });
 
   // Limit the value, shouldn't happen but you never know
-  if (value > props.questionList.length) value = props.questionList.length;
+  if (value > questions.value.length) value = questions.value.length;
   return value;
 });
 
 // Get the current question via index
 const getCurrentQuestion = computed(() => {
-  let question = props.questionList[currentQuestion.value];
+  let question = questions.value[currentQuestion.value];
+  console.log(question);
   return question;
 });
 
 // Increment to the next question
 const getNextQuestion = () => {
-  if (currentQuestion.value < props.questionList.length - 1) {
+  if (currentQuestion.value < questions.value.length - 1) {
     currentQuestion.value++;
     return;
   }
@@ -58,9 +55,7 @@ const setAnswer = (e) => {
         <span class="question">
           {{ getCurrentQuestion.question }}
         </span>
-        <span class="score">
-          Score {{ score }} / {{ questionList.length }}
-        </span>
+        <span class="score"> Score {{ score }} / {{ questions.length }} </span>
       </div>
       {{ getCurrentQuestion.sentence }}
 
@@ -95,7 +90,7 @@ const setAnswer = (e) => {
 
       <button @click="getNextQuestion" :disabled="!getCurrentQuestion.selected">
         {{
-          getCurrentQuestion.index == props.questionList.length - 1
+          getCurrentQuestion.index == questions.value.length - 1
             ? "Finish"
             : getCurrentQuestion.selected == null
             ? "Select an option"
@@ -105,7 +100,7 @@ const setAnswer = (e) => {
     </section>
     <section v-else>
       <h2>You have finished the quiz!</h2>
-      <p>Your score is {{ score }}/{{ props.questionList.length }}</p>
+      <p>Your score is {{ score }}/{{ questions.value.length }}</p>
       <p>
         Go back to
         <RouterLink to="/home">Grammar Practice</RouterLink>.
