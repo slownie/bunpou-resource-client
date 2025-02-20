@@ -7,43 +7,35 @@ const route = useRoute();
 const questions = ref(sourceData[5 - route.params.id]);
 
 // Quiz Setup
-const currentQuestion = ref(0);
+const questionIndex = ref(0);
 const quizCompleted = ref(false);
-const selected = ref('');
-const score = computed(() => {
-  let value = 0;
-  // Setting the score
-  questions.value.map((q) => {
-    if (q.selected != null && q.rightAnswer == q.selected) {
-      value++;
-    }
-  });
-
-  // Limit the value, shouldn't happen but you never know
-  if (value > questions.value.length) value = questions.value.length;
-  return value;
-});
+const selected = ref();
+const score = ref(0);
 
 // Get the current question via index
 const getCurrentQuestion = computed(() => {
-  let question = questions.value[currentQuestion.value];
-  question.index = currentQuestion.value;
-  console.log(question.index)
+  let question = questions.value[questionIndex.value];
+  console.log(question);
+  question.index = questionIndex.value;
   return question;
 });
 
 // Increment to the next question
 const getNextQuestion = () => {
-  if (currentQuestion.value < questions.value.length - 1) {
-    currentQuestion.value++;
+  if (questionIndex.value < questions.value.length - 1) {
+    questionIndex.value++;
+    selected.value = undefined;
     return;
   }
   quizCompleted.value = true;
 };
 
 const setAnswer = () => {
-  if (selected.value === currentQuestion.value.rightAnswer) {
+  // console.log(selected.value);
+  // console.log(getCurrentQuestion.value.rightAnswer)
+  if (selected.value == getCurrentQuestion.value.rightAnswer) {
     console.log("Correct answer")
+    score.value++;
   } else {
     console.log("Wrong answer")
   }
@@ -67,9 +59,10 @@ const setAnswer = () => {
       <input
         type="radio"
         :id="option"
-        :name="getCurrentQuestion"
+        :name="option"
         :value="option"
         v-model="selected"
+        :disabled="selected"
         @change="setAnswer"
       />
       <span>{{ option }}</span>
@@ -77,9 +70,12 @@ const setAnswer = () => {
     </div>
 
     <button
-      @="getNextQuestion"
-      :disabled="!getCurrentQuestion.selected"
+      @click="getNextQuestion"
+      :disabled="!selected"
       >
+      {{ 
+        getCurrentQuestion.index == questions.length - 1 ? 'Finish' : !selected ? "Select an option" : "Next question"
+      }}
 
     </button>
 
