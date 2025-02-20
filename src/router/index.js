@@ -6,6 +6,7 @@ import AuthFailureView from "@/views/AuthFailureView.vue";
 import NotFound from "@/views/NotFound.vue";
 
 import { useUserStore } from "../stores/UserStore";
+import TestView from "@/views/TestView.vue";
 
 // https://router.vuejs.org/guide/advanced/navigation-guards.html#global-before-guards
 // https://stackoverflow.com/questions/65588580/how-to-change-component-rendered-by-router-on-state-change-in-vue
@@ -26,6 +27,12 @@ const router = createRouter({
           return "/home";
         }
       },
+    },
+
+    {
+      path: "/test/:id",
+      name: "Test",
+      component: TestView
     },
 
     {

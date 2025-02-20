@@ -7,6 +7,9 @@
 + Add accessibility
 + Test components
 
+==Grammar Points==
++ Refactor points.json and GrammarListVue to not rely on ids
+
 ==SRS Practice==
 + Implement the SRS system
 
